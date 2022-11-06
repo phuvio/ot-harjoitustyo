@@ -10,4 +10,3 @@ Tämä tiedosto on rakennettu **Ohjelmistotuotanto**-kurssin *ensimmäisen* viik
 
 [komentorivi.txt](https://github.com/phuvio/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
 
-Lisäys
