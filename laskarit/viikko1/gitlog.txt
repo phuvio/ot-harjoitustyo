@@ -1,0 +1,113 @@
+commit 14510e1ba4067afad7fce89521b01d4706c27e6a
+Author: Petteri Huvio <petteri.huvio@gmail.com>
+Date:   Sat Nov 5 16:20:18 2022 +0200
+
+    file22 lisätty
+
+ tiedostoja/file2.txt                 | 0
+ tiedostoja/{file1.txt => file22.txt} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 71f494296c0caaa142e24c259ec9d58ab2f1ba47
+Author: Petteri Huvio <petteri.huvio@gmail.com>
+Date:   Sat Nov 5 16:17:23 2022 +0200
+
+    file1, file2 ja file3 lisätty
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit a99f846847e55e92000e97048d3e02cd37e6528b
+Author: Petteri Huvio <petteri.huvio@gmail.com>
+Date:   Sat Nov 5 16:10:25 2022 +0200
+
+    eka.txt ja kolmas.txt muutettu
+
+ eka.txt    | 8 ++++++--
+ kolmas.txt | 2 +-
+ 2 files changed, 7 insertions(+), 3 deletions(-)
+
+commit 654237398bd49936838c3baa7fc18553e39788d2
+Author: Petteri Huvio <petteri.huvio@gmail.com>
+Date:   Sat Nov 5 16:07:11 2022 +0200
+
+    tiedosto.txt nimetty uudelleen eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 1a9fd3496e97e464fddebf70c94ca63560311777
+Author: Petteri Huvio <petteri.huvio@gmail.com>
+Date:   Sat Nov 5 16:06:05 2022 +0200
+
+    toinen.txt poistettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 7408fd2f9c81e20a68115d83669426812a928477
+Author: Petteri Huvio <petteri.huvio@gmail.com>
+Date:   Sat Nov 5 16:03:13 2022 +0200
+
+    tiedostot.txt muutos
+
+ tiedosto.txt | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
+
+commit c225fae28ffa1f70653f8232b5575e596410d258
+Author: Petteri Huvio <petteri.huvio@gmail.com>
+Date:   Sat Nov 5 16:01:10 2022 +0200
+
+    lisäteksti tiedostot.txt
+
+ tiedosto.txt | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
+
+commit ebbd7f0c82f2d9adb13ab5b8d932f85f6cb445c9
+Author: Petteri Huvio <petteri.huvio@gmail.com>
+Date:   Sat Nov 5 14:48:20 2022 +0200
+
+    stuff-hakemisto lisätty
+
+ stuff/stuff.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit cfb376e792a9d9aefbeb495655b72c0b90f79309
+Author: Petteri Huvio <petteri.huvio@gmail.com>
+Date:   Sat Nov 5 14:47:04 2022 +0200
+
+    toinen ja kolmas muutettu
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit f71d93003a5189d5584ed6704efabf8d6b08e49f
+Author: Petteri Huvio <petteri.huvio@gmail.com>
+Date:   Sat Nov 5 14:46:02 2022 +0200
+
+    kolmas.txt luotu
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 11ce806f7447730b1b3a120654b839e269b9e64f
+Author: Petteri Huvio <petteri.huvio@gmail.com>
+Date:   Sat Nov 5 14:42:54 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 0398d1b3ce478214a106a2627319a558bc561724
+Author: Petteri Huvio <petteri.huvio@gmail.com>
+Date:   Sat Nov 5 14:40:13 2022 +0200
+
+    tiedosto.txt luoto
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
