@@ -1,4 +1,4 @@
-# Ohjelmistotuotanto
+# Ohjelmistotekniikka
 
 ## Harjoitukset 
 
