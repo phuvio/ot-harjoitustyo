@@ -11,7 +11,7 @@ Sovellusta voi käyttää useampi rekisteröitynyt käyttäjä. Kaikilla käytt�
 ## Käyttöliittymäluonnos
 
 Sovellus koostuu seitsemästä eri näkymästä.
-![Käyttöliittymäluonnos](/kuvat/kayttoliittymaluonnos.jpg = 250x)
+![Käyttöliittymäluonnos](/kuvat/kayttoliittymaluonnos.jpg)
 
 Sovellus aukeaa kirjautumisnäkymään, josta on mahdollista siirytä uuden käyttäjän luomisnäkymään tai onnistuneen kirjautumisen yhteydessä matkaluetteloon. Matkaluettelosta voi siirtyä uuden matkan luomisnäkymään, jossa voi luoda uuden matkan ja valita sille osallistujat sekä matkanjohtajan, tai valita jonkun luettelossa olevista matkoista. Tällöin siirrytään valitun matkan näkymään, jossa näkyvät matkan maksut ja kuka maksun on maksanut. Matkanjohtaja voi lisätä uusia maksuja luetteloon. Uusien maksujen näkymässä luodaan uusi maksu, syötetään maksulle summa, päivämäärä ja maksajat sekä valitaan kenelle maksu kohdistuu. Matka-näkymästä voi jokainen käyttäjä valita myös yhteenveto-näkymän, jossa on yhteenveto jokaisen matkalaisen suorittamista maksuista, laskelma jokaiselle matkalaiselle kohdistuneista maksuista sekä jokaisen matkalaisen plus-miinus-tilasto.
 
