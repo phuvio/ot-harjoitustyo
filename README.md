@@ -14,3 +14,10 @@ Tämä tiedosto on rakennettu **Ohjelmistotekniikka**-kurssin *ensimmäisen* vii
 
 [testikattavuus.png](https://github.com/phuvio/ot-harjoitustyo/blob/main/laskarit/viikko2/testikattavuus.png)
 
+#### Travel Expense Calculator App
+
+#### Dokumentaatio
+
+- [Vaatimusmäärittely](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/dokumentaatio/vaatimusmaarittely.md)
+
+- [Työaikakirjanpito](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/dokumentaatio/tuntikirjanpito.md)
