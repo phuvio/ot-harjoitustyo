@@ -2,18 +2,19 @@
 
 # Sovelluksen tarkoitus
 
-Ryhmässä on mukava matkustaa. Välillä tulee kuitenkin kiistaa siitä, kuka on maksanut mitäkin laskuja ja kuinka paljon. Travel Expense Calculato -sovellukseen voi syöttää kaikki matkan aikana syntyneet kulut sekä tiedon siitä kuka on maksaja ja keille maksu kohdistuu. Sovellus pitää kirjaa maksuista ja laskee automaattisesti kaikkien matkalaisten maksamien laskujen saldon sekä plus-miinus-tilaston jokaiselle matkalaiselle. Sovellukseen voi tallentaa useita matkoja.
+Ryhmässä on mukava matkustaa. Välillä tulee kuitenkin kiistaa siitä, kuka on maksanut mitäkin laskuja ja kuinka paljon. **Travel Expense Calculator** -sovellukseen voi syöttää kaikki matkan aikana syntyneet kulut sekä tiedon siitä kuka on maksaja ja keille maksu kohdistuu. Sovellus pitää kirjaa maksuista ja laskee automaattisesti kaikkien matkalaisten maksamien laskujen saldon sekä plus-miinus-tilaston jokaiselle matkalaiselle. Sovellukseen voi tallentaa useita matkoja.
 
 ## Käyttäjät
 
-Sovellusta voi käyttää useampi rekisteröitynyt käyttäjä. Kaikilla käyttäjillä on kirjautuessa sama rooli. Mutta jokaisella matkalla voi olla vain yksi matkanjohtaja, jolla on oikeus kirjata kuitteja ja laskuja sovellukseen.
+Sovellusta voi käyttää useampi rekisteröitynyt käyttäjä. Kaikilla käyttäjillä on kirjautuessa sama rooli. Mutta jokaisella matkalla voi olla vain yksi *matkanjohtaja*, jolla on oikeus kirjata kuitteja ja laskuja sovellukseen.
 
 ## Käyttöliittymäluonnos
 
 Sovellus koostuu seitsemästä eri näkymästä.
+
 ![Käyttöliittymäluonnos](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/dokumentaatio/kuvat/kayttoliittymaluonnos.jpg)
 
-Sovellus aukeaa kirjautumisnäkymään, josta on mahdollista siirytä uuden käyttäjän luomisnäkymään tai onnistuneen kirjautumisen yhteydessä matkaluetteloon. Matkaluettelosta voi siirtyä uuden matkan luomisnäkymään, jossa voi luoda uuden matkan ja valita sille osallistujat sekä matkanjohtajan, tai valita jonkun luettelossa olevista matkoista. Tällöin siirrytään valitun matkan näkymään, jossa näkyvät matkan maksut ja kuka maksun on maksanut. Matkanjohtaja voi lisätä uusia maksuja luetteloon. Uusien maksujen näkymässä luodaan uusi maksu, syötetään maksulle summa, päivämäärä ja maksajat sekä valitaan kenelle maksu kohdistuu. Matka-näkymästä voi jokainen käyttäjä valita myös yhteenveto-näkymän, jossa on yhteenveto jokaisen matkalaisen suorittamista maksuista, laskelma jokaiselle matkalaiselle kohdistuneista maksuista sekä jokaisen matkalaisen plus-miinus-tilasto.
+Sovellus aukeaa *kirjautumisnäkymään*, josta on mahdollista siirytä *uuden käyttäjän luomisnäkymään* tai onnistuneen kirjautumisen yhteydessä *matkaluetteloon*. *Matkaluettelosta* voi siirtyä *uuden matkan luomisnäkymään*, jossa voi luoda uuden matkan ja valita sille osallistujat sekä matkanjohtajan, tai valita jonkun luettelossa olevista matkoista. Tällöin siirrytään valitun matkan *matka-näkymään*, jossa näkyvät matkan maksut ja kuka maksun on maksanut. Matkanjohtaja voi lisätä uusia maksuja luetteloon. *Uusien maksujen näkymässä* luodaan uusi maksu, syötetään maksulle summa, päivämäärä ja maksajat sekä valitaan kenelle maksu kohdistuu. *Matka-näkymästä* voi jokainen käyttäjä valita myös *yhteenveto-näkymän*, jossa on yhteenveto jokaisen matkalaisen suorittamista maksuista, laskelma jokaiselle matkalaiselle kohdistuneista maksuista sekä jokaisen matkalaisen plus-miinus-tilasto.
 
 ## Perusversion tarjoama toiminnallisuus
 
@@ -27,16 +28,16 @@ Sovellus aukeaa kirjautumisnäkymään, josta on mahdollista siirytä uuden käy
 ### Kirjautumisen jälkeen
  
 - Käyttäjä näkee luettelon sovellukseen luoduista matkoista
-- Käyttäjä voi luoda uuden matkan lisää matka -näkymässä
-- Käyttäjä voi valita luettelosta matkan, jolloin hän pääsee valitun matkan matkan laskut -näkymään
+- Käyttäjä voi luoda uuden matkan *lisää matka -näkymässä*
+- Käyttäjä voi valita luettelosta matkan, jolloin hän pääsee valitun matkan *matkan laskut -näkymään*
 
-### Lisää matka -näkymä
+### *Lisää matka -näkymä*
 - Käyttäjä voi luoda uuden matkan
   - Matkalle pitää antaa nimi, jonka täytyy olla uniikki
   - Matkalle valitaan osallistujat, jotka voivat olla sovellukseen käyttäjätunnuksen luoneita käyttäjiä
   - Matkalle valitaan matkanjohtaja, jolla on oikeus lisätä uusia maksuja matkalle
 
-### Matka-näkymä
+### *Matka-näkymä*
 
 - Käyttäjä näkee matkalle tallennetut maksut
   - Jokaisen maksun kohdalla näkyvät
@@ -46,9 +47,9 @@ Sovellus aukeaa kirjautumisnäkymään, josta on mahdollista siirytä uuden käy
     - Kenelle maksu kohdistuu
     - Maksun päivämäärä
 - Jos käyttäjä on matkan matkanjohtaja, voi hän lisätä uuden maksun matkalle
-- Jokainen käyttäjä voi siirtyä yhteenveto-näkymään, jossa on matkan maksujen yhteenveto
+- Jokainen käyttäjä voi siirtyä *yhteenveto-näkymään*, jossa on matkan maksujen yhteenveto
 
-### Uusi lasku -näkymä
+### *Uusi lasku -näkymä*
 
 - Matkanjohtaja kirjaa 
   - Uuden maksun nimen, jonka pitää olla uniikki
@@ -57,9 +58,9 @@ Sovellus aukeaa kirjautumisnäkymään, josta on mahdollista siirytä uuden käy
   - Miten maksu jakautuu matkan osallistujien kesken
   - Maksun päivämäärän 
 
-### Yhteenveto-näkymä
+### *Yhteenveto-näkymä*
 
-- Yhteenveto-näkymässä on laskelma, jossa näkyvät
+- *Yhteenveto-näkymässä* on laskelma, jossa näkyvät
   - Jokaisen matkalaisetn maksamien laskujen summa
   - Jokaiseen matkalaiseen kohdistuvien laskujen summa
   - Jokaisen matkalaisen plus-miinus-tilasto, jossa näkyy onko matkalainen maksanut enemmän tai vähemmän kuin oman osuutensa
