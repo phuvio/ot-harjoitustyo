@@ -11,7 +11,7 @@ Sovellusta voi käyttää useampi rekisteröitynyt käyttäjä. Kaikilla käytt�
 ## Käyttöliittymäluonnos
 
 Sovellus koostuu seitsemästä eri näkymästä.
-![Käyttöliittymäluonnos](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/dokumentaatio/kuvat/kayttoliittymaluonnos.jpg)
+![Käyttöliittymäluonnos](/kuvat/kayttoliittymaluonnos.jpg = 250x)
 
 Sovellus aukeaa kirjautumisnäkymään, josta on mahdollista siirytä uuden käyttäjän luomisnäkymään tai onnistuneen kirjautumisen yhteydessä matkaluetteloon. Matkaluettelosta voi siirtyä uuden matkan luomisnäkymään, jossa voi luoda uuden matkan ja valita sille osallistujat sekä matkanjohtajan, tai valita jonkun luettelossa olevista matkoista. Tällöin siirrytään valitun matkan näkymään, jossa näkyvät matkan maksut ja kuka maksun on maksanut. Matkanjohtaja voi lisätä uusia maksuja luetteloon. Uusien maksujen näkymässä luodaan uusi maksu, syötetään maksulle summa, päivämäärä ja maksajat sekä valitaan kenelle maksu kohdistuu. Matka-näkymästä voi jokainen käyttäjä valita myös yhteenveto-näkymän, jossa on yhteenveto jokaisen matkalaisen suorittamista maksuista, laskelma jokaiselle matkalaiselle kohdistuneista maksuista sekä jokaisen matkalaisen plus-miinus-tilasto.
 
@@ -43,6 +43,7 @@ Sovellus aukeaa kirjautumisnäkymään, josta on mahdollista siirytä uuden käy
     - Maksun nimi
     - Maksun summa
     - Maksajan/ien nimi
+    - Kenelle maksu kohdistuu
     - Maksun päivämäärä
 - Jos käyttäjä on matkan matkanjohtaja, voi hän lisätä uuden maksun matkalle
 - Jokainen käyttäjä voi siirtyä yhteenveto-näkymään, jossa on matkan maksujen yhteenveto
@@ -69,6 +70,8 @@ Perusversion jälkeen on mahdollista lisätä, mikäli aikaa jää, seuraavia to
 
 - Lisätä yhteenveto-näkymään laskelma miten matkan päätyttyä maksut tasataan 
 - Kieliversiot
+- Matkan tietojen muokkaaminen
+- Laskun tietojen muokkaaminen
 - Yhteenvedon lähettäminen pdf-tiedostona annettuun sähköpostiin
 - Pääkäyttäjäroolin lisääminen
   - Pääkäyttäjä voi poistaa matkoja ja henkilöitä
