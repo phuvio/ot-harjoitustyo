@@ -8,6 +8,6 @@ Sovellus on tehty Helsingin yliopiston Tietojenkäsittelytieteen kurssin Ohjelmi
 
 ## Dokumentaatio
 
-[vaatimusmäärittely](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/dokumentaatio/vaatimusmaarittely.md)
+- [Vaatimusmäärittely](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/dokumentaatio/vaatimusmaarittely.md)
 
-[tuntikirjanpito](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/dokumentaatio/tuntikirjanpito.md)
+- [Työaikakirjanpito](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/dokumentaatio/tuntikirjanpito.md)
