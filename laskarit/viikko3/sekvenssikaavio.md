@@ -42,19 +42,19 @@
       M->>H: lisaa_lukija(ratikka6)
       M->>H: lisaa_lukija(bussi244)
       M->>K: Kioski()
-      M->>K: osta_matkakortti("Kalle")
+      M->>+K: osta_matkakortti("Kalle")
       K->>A: Matkakortti("Kalle")
-      K-->>M: kallen_kortti
-      M->>L: lataa_arvoa(kallen_kortti, 3)
+      K-->>-M: kallen_kortti
+      M->>+L: lataa_arvoa(kallen_kortti, 3)
       L->>A: kasvata_arvoa(3)
-      K-->>M: kallen_kortti(3)
-      M->>R: osta_lippu(kallen_kortti, 0)
+      K-->>-M: kallen_kortti(3)
+      M->>+R: osta_lippu(kallen_kortti, 0)
       R->>A: arvo()
       A-->>R: 3
       R->>A: vahenna_arvoa(1.5)
-      R-->>M: True
-      M->>R: osta_lippu(kallen_kortti, 2)
+      R-->>-M: True
+      M->>+R: osta_lippu(kallen_kortti, 2)
       R->>A: arvo()
       A-->>R: 1.5
-      R-->>M: False
+      R-->>-M: False
 ```
