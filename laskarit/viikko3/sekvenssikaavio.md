@@ -12,5 +12,6 @@
    M->>E: Engine(FuelTank())
    P->>M: drive()
    M->>E: start()
+   E->>F: is_running()
    E->>F: consume(5)
 ```
