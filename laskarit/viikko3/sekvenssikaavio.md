@@ -38,11 +38,15 @@
       M->>L: Lataajalaite()
       M->>R: Lukijalaite()
       M->>B: Lukijalaite()
-      M->>H: lisaa_lataaj(rautatietori)
+      M->>H: lisaa_lataaja(rautatietori)
       M->>H: lisaa_lukija(ratikka6)
       M->>H: lisaa_lukija(bussi244)
       M->>K: Kioski()
       M->>K: osta_matkakortti("Kalle")
       K->>A: Matkakortti("Kalle")
-      A-->>M: True
+      K-->>M: kallen_kortti
+      M->>L: lataa_arvoa(kallen_kortti, 3)
+      L->>A: kasvata_arvoa(3)
+      A-->>L: kallen_kortti(3)
+      
 ```
