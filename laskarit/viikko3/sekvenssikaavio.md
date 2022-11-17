@@ -8,4 +8,6 @@
    participant E as Engine
    P->>M: Machine()
    M->>F: FuelTank()
+   M->>F: fill(40)
+   M->>E: Engine(FuelTank())
 ```
