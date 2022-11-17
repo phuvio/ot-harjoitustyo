@@ -44,5 +44,5 @@
       M->>K: Kioski()
       M->>K: osta_matkakortti("Kalle")
       K->>A: Matkakortti("Kalle")
-      A->>M: True
+      A-->>M: True
 ```
