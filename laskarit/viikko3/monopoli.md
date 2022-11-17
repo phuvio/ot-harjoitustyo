@@ -27,9 +27,9 @@
 
 ```mermaid
  classDiagram
-      Pelaaja "2..8"--"1" Peli
       Peli "1"--"2" Noppa
       Peli "1"--"1" Lauta
+      Pelaaja "2..8"--"1" Peli
       Lauta "1"--"40" Ruutu
       Ruutu "1"--"0..8" Pelinappula
       Pelinappula "1"--"1" Pelaaja
