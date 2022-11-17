@@ -47,6 +47,6 @@
       K-->>M: kallen_kortti
       M->>L: lataa_arvoa(kallen_kortti, 3)
       L->>A: kasvata_arvoa(3)
-      A-->>L: kallen_kortti(3)
+      K-->>M: kallen_kortti(3)
       
 ```
