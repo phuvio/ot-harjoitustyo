@@ -21,3 +21,24 @@
    E->>F: consume(10)
 
 ```
+
+# Tehtävä 4 Laajempi sekvenssikaavio
+
+```mermaid
+  sequenceDiagram
+      participant M as Main
+      participant H as HKLLaitehallinto
+      participant L as Rautatietori
+      participant R as Ratikka6
+      participant B as Bussi244
+      participant K as Kioski
+      participant A as Matkakortti
+      
+      M->>H: HKLLaitehallinto()
+      M->>L: Lataajalaite()
+      M->>R: Lukijalaite()
+      M->>B: Lukijalaite()
+      M->>H: lisaa_lataaj(rautatietori)
+      M->>H: lisaa_lukija(ratikka6)
+      M->>: lisaa_lukija(bussi244)
+```
