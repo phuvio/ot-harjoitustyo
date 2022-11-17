@@ -19,4 +19,10 @@
    E-->>-M: True
    M->>E: use_energy()
    E->>F: consume(10)
+   M->>+E: is_running()
+   E->>+F:fuel_contents()
+   F-->>-E: 25
+   E-->>-M: True
+   M->>E: use_energy()
+   E->>F: consume(10)
 ```
