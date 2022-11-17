@@ -41,4 +41,8 @@
       M->>H: lisaa_lataaj(rautatietori)
       M->>H: lisaa_lukija(ratikka6)
       M->>H: lisaa_lukija(bussi244)
+      M->>K: Kioski()
+      M->>K: osta_matkakortti("Kalle")
+      K->>A: Matkakortti("Kalle")
+      A->>M: True
 ```
