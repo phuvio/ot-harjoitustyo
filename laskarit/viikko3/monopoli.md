@@ -2,7 +2,7 @@
 
 ```mermaid
  classDiagram
-      Peli "1"-->"1" Lauta
+      Peli "1"--"1" Lauta
       class Peli{
       }
       class Lauta{
