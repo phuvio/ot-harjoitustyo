@@ -38,6 +38,7 @@
       Normaalit_kadut "1"--"0..4" Talo
       Normaalit_kadut "1"--"0..1" Hotelli
       Pelaaja "1"--"*" Normaalit_kadut
+      Aloitus --|> Ruutu
       class Peli{
       }
       class Lauta{
