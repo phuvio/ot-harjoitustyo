@@ -45,9 +45,9 @@
       M->>+K: osta_matkakortti("Kalle")
       K->>A: Matkakortti("Kalle")
       K-->>-M: kallen_kortti
-      M->>L: lataa_arvoa(kallen_kortti, 3)
+      M->>+L: lataa_arvoa(kallen_kortti, 3)
       L->>A: kasvata_arvoa(3)
-      K-->>M: kallen_kortti(3)
+      L-->>-M: kallen_kortti(3)
       M->>+R: osta_lippu(kallen_kortti, 0)
       R->>+A: arvo()
       A-->>-R: 3
