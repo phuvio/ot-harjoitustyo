@@ -40,5 +40,5 @@
       M->>B: Lukijalaite()
       M->>H: lisaa_lataaj(rautatietori)
       M->>H: lisaa_lukija(ratikka6)
-      M->>: lisaa_lukija(bussi244)
+      M->>H: lisaa_lukija(bussi244)
 ```
