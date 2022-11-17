@@ -10,4 +10,7 @@
    M->>F: FuelTank()
    M->>F: fill(40)
    M->>E: Engine(FuelTank())
+   P->>M: drive()
+   M->>E: engine.start()
+   
 ```
