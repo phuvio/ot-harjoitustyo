@@ -50,4 +50,24 @@
       }
       class Noppa{
       }
+      class Aloitus{
+      sijainti
+      }
+      class Vankila{
+      sijainti
+      }
+      class Sattuma ja yhteismaa{
+      }
+      class Kortti{
+      toiminto
+      }
+      class Asemat ja laitokset{
+      }
+      class Normaalit kadut{
+      nimi
+      }
+      class Hotelli{
+      }
+      class Talo{
+      }
 ```
