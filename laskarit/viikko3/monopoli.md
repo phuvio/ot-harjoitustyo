@@ -37,6 +37,7 @@
       Sattuma_ja_yhteismaa -- Kortti
       Normaalit_kadut "1"--"0..4" Talo
       Normaalit_kadut "1"--"0..1" Hotelli
+      Pelaaja "1"--"*" Normaalit_kadut
       class Peli{
       }
       class Lauta{
