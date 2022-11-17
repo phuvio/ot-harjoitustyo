@@ -25,4 +25,5 @@
    E-->>-M: True
    M->>E: use_energy()
    E->>F: consume(10)
+
 ```
