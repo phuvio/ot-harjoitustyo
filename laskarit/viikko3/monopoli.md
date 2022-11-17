@@ -39,6 +39,10 @@
       Normaalit_kadut "1"--"0..1" Hotelli
       Pelaaja "1"--"*" Normaalit_kadut
       Aloitus --|> Ruutu
+      Vankila --|> Ruutu
+      Sattuma_ja_yhteismaa --|> Ruutu
+      Asemat_ja_laitokset --|> Ruutu
+      Normaalit_kadut --|> Ruutu
       class Peli{
       }
       class Lauta{
