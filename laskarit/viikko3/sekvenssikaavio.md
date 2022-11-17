@@ -4,7 +4,8 @@
  sequenceDiagram
    participant P as Main
    participant M as Machine
-   participant D as Drive
-   P->>M: __init__
-   
+   participant F as FuelTank
+   participant E as Engine
+   P->>M: Machine()
+   M->>F: FuelTank()
 ```
