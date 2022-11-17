@@ -13,8 +13,10 @@
    P->>M: drive()
    M->>E: start()
    E->>F: consume(5)
-   E->>F: is_running()
-   E->>F:fuel_contents
+   M->>E: is_running()
+   E->>F:fuel_contents()
    F-->>E: 35
+   E-->>M: True
+   M->>E: use_energy()
    E->>F: consume(10)
 ```
