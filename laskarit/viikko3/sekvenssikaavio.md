@@ -14,6 +14,6 @@
    M->>E: start()
    E->>F: consume(5)
    E->>F: is_running()
-   F-->E: 35
+   F-->>E: 35
    E->>F: consume(10)
 ```
