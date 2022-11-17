@@ -34,6 +34,9 @@
       Pelinappula "1"--"1" Pelaaja
       Pelaaja "2..8"--"1" Peli
       Pelaaja "1"--"*" Raha
+      Sattuma_ja_yhteismaa -- Kortti
+      Normaalit_kadut "1"--"0..4" Talo
+      Normaalit_kadut "1"--"0..1" Hotelli
       class Peli{
       }
       class Lauta{
@@ -56,14 +59,14 @@
       class Vankila{
       sijainti
       }
-      class Sattuma ja yhteismaa{
+      class Sattuma_ja_yhteismaa{
       }
       class Kortti{
       toiminto
       }
-      class Asemat ja laitokset{
+      class Asemat_ja_laitokset{
       }
-      class Normaalit kadut{
+      class Normaalit_kadut{
       nimi
       }
       class Hotelli{
