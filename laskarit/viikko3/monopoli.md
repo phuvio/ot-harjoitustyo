@@ -43,6 +43,8 @@
       Sattuma_ja_yhteismaa --|> Ruutu
       Asemat_ja_laitokset --|> Ruutu
       Normaalit_kadut --|> Ruutu
+      Peli ..> Vankila
+      Peli ..> Aloitus
       class Peli{
       }
       class Lauta{
