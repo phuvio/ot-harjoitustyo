@@ -2,7 +2,7 @@
 
 ```mermaid
  sequenceDiagram
-   participant P ad Main
+   participant P as Main
    participant M as Machine
    participant D as Drive
    P->>M: __init__
