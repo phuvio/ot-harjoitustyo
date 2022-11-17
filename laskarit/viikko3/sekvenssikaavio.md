@@ -49,12 +49,12 @@
       L->>A: kasvata_arvoa(3)
       K-->>M: kallen_kortti(3)
       M->>+R: osta_lippu(kallen_kortti, 0)
-      R->>A: arvo()
-      A-->>R: 3
+      R->>+A: arvo()
+      A-->>-R: 3
       R->>A: vahenna_arvoa(1.5)
       R-->>-M: True
       M->>+R: osta_lippu(kallen_kortti, 2)
-      R->>A: arvo()
-      A-->>R: 1.5
+      R->>+A: arvo()
+      A-->>-R: 1.5
       R-->>-M: False
 ```
