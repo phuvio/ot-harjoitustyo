@@ -6,8 +6,56 @@ Ryhmässä on mukava matkustaa. Välillä tulee kuitenkin kiistaa siitä, kuka o
 
 Sovellus on tehty Helsingin yliopiston Tietojenkäsittelytieteen kurssin Ohjelmistotekniikka harjoitustyönä.
 
+# Huomio Python-versiosta
+
+Sovelluksen toiminta on testattu Python-versiolla 3.8. 
+
 ## Dokumentaatio
 
-- [Vaatimusmäärittely](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/dokumentaatio/vaatimusmaarittely.md)
+- [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
 
-- [Työaikakirjanpito](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/dokumentaatio/tuntikirjanpito.md)
+- [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
+
+- [ChangeLog](./dokumentaatio/changelog.md)
+
+
+# Asennus
+
+1. Asenna riippuvuudet komennolla:
+
+```bash
+poetry install
+```
+
+2. Suorita vaadittavat alustustoimenpiteet komennolla:
+
+```bash
+poetry run invoke build
+```
+
+3. Käynnistä sovellus komennolla:
+
+```bash
+poetry run invoke start
+```
+
+# Komentorivitoiminnot
+
+### Ohjelman suorittaminen
+
+Ohjelman pystyy suorittamaan komennolla:
+
+```bash
+poetry run invoke start
+```
+
+### Testaus
+
+Testit suoritetaan komennolla:
+
+```bash
+poetry run invoke test
+```
+
+Testit eivät tällä hetkellä mene läpi.
+

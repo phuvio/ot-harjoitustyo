@@ -1,23 +1,61 @@
-# Ohjelmistotekniikka
+# Travel Expense Calculator App
 
-## Harjoitukset 
+## Sovelluksen tarkoitus
 
-### Viikko 1
+Ryhmässä on mukava matkustaa. Välillä tulee kuitenkin kiistaa siitä, kuka on maksanut mitäkin laskuja ja kuinka paljon. Travel Expense Calculator -sovellukseen voi syöttää kaikki matkan aikana syntyneet kulut sekä tiedon siitä kuka on maksaja ja keille maksu kohdistuu. Sovellus pitää kirjaa maksuista ja laskee automaattisesti kaikkien matkalaisten maksamien laskujen saldon sekä laskee plus-miinus-tilaston jokaiselle matkalaiselle. Sovellukseen voi tallentaa useita matkoja ja niihin liittyviä maksuja.
 
-Tämä tiedosto on rakennettu **Ohjelmistotekniikka**-kurssin *ensimmäisen* viikon harjoituksia varten.
+Sovellus on tehty Helsingin yliopiston Tietojenkäsittelytieteen kurssin Ohjelmistotekniikka harjoitustyönä.
 
-[gitlog.txt](https://github.com/phuvio/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
+# Huomio Python-versiosta
 
-[komentorivi.txt](https://github.com/phuvio/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
+Sovelluksen toiminta on testattu Python-versiolla 3.8. 
 
-### Viikko 2
+## Dokumentaatio
 
-[testikattavuus.png](https://github.com/phuvio/ot-harjoitustyo/blob/main/laskarit/viikko2/testikattavuus.png)
+- [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
 
-#### Travel Expense Calculator App
+- [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
 
-#### Dokumentaatio
+- [ChangeLog](./dokumentaatio/changelog.md)
 
-- [Vaatimusmäärittely](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/dokumentaatio/vaatimusmaarittely.md)
 
-- [Työaikakirjanpito](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/dokumentaatio/tuntikirjanpito.md)
+# Asennus
+
+1. Asenna riippuvuudet komennolla:
+
+```bash
+poetry install
+```
+
+2. Suorita vaadittavat alustustoimenpiteet komennolla:
+
+```bash
+poetry run invoke build
+```
+
+3. Käynnistä sovellus komennolla:
+
+```bash
+poetry run invoke start
+```
+
+# Komentorivitoiminnot
+
+### Ohjelman suorittaminen
+
+Ohjelman pystyy suorittamaan komennolla:
+
+```bash
+poetry run invoke start
+```
+
+### Testaus
+
+Testit suoritetaan komennolla:
+
+```bash
+poetry run invoke test
+```
+
+Testit eivät tällä hetkellä mene läpi.
+
