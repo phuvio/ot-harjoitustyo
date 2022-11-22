@@ -12,11 +12,11 @@ Sovelluksen toiminta on testattu Python-versiolla 3.8.
 
 ## Dokumentaatio
 
-- [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
+- [Vaatimusmäärittely](./src/dokumentaatio/vaatimusmaarittely.md)
 
-- [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
+- [Työaikakirjanpito](./src/dokumentaatio/tuntikirjanpito.md)
 
-- [ChangeLog](./dokumentaatio/changelog.md)
+- [ChangeLog](./src/dokumentaatio/changelog.md)
 
 
 # Asennus
