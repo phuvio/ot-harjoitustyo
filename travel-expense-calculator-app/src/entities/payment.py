@@ -1,8 +1,8 @@
 class Payment:
-    def __init__(self, receipt, date, sum, payer, adjustment, information):
-        self.receipt = receipt
+    def __init__(self, receipt_name, date, amount, transaction, payer, information):
+        self.receipt_name = receipt_name
         self.date = date
-        self.sum = sum
+        self.sum = amount
+        self.transaction = transaction
         self.payer = payer
-        self.adjustment = adjustment
         self.information = information

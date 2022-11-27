@@ -1,9 +1,19 @@
 from tkinter import ttk, constants
-from services.travel_service import TravelService
+from repositories.travel_repository import Travel
+
 
 class TravelListView:
+    """Matkojen listauksesta vastaava näkymä"""
 
     def __init__(self, root, travels):
+        """Luokan konstruktori. Luo uuden matkojen listausnäkymän
+
+        Args:
+            root:
+                Tkinter-elementti, jonka sisään näkymä alustetaan
+            travels:
+                Lista Travel-olioita, jotka näytetään näkymässä     
+        """
         self._root = root
         self._travels = travels
         self._frame = None
@@ -18,15 +28,18 @@ class TravelListView:
 
     def _initialize_travels_list(self, travel):
         item_frame = ttk.Frame(master=self._frame)
-        
-        name_label = ttk.Label(master=item_frame, text=travel["name"])
-        name_label.grid(row=1, column=0, padx=(10, 5), pady=5, sticky=constants.W)
 
-        participants_label = ttk.Label(master=item_frame, text=travel["participants"])
-        participants_label.grid(row=1, column=2, padx=5, pady=5, sticky=constants.E)
+        name_label = ttk.Label(master=item_frame, text=travel.name)
+        name_label.grid(row=1, column=0, padx=(
+            10, 5), pady=5, sticky=constants.W)
+
+        participants_label = ttk.Label(
+            master=item_frame, text=travel.participants)
+        participants_label.grid(row=1, columnspan=3,
+                                padx=5, pady=5, sticky=constants.E)
 
         item_frame.grid_columnconfigure(0, weight=1, minsize=50)
-        item_frame.grid_columnconfigure(1, weight=4)
+        item_frame.grid_columnconfigure(1, weight=1)
         item_frame.pack(fill=constants.X)
 
     def _initialize_no_saved_travels(self):
@@ -48,23 +61,13 @@ class TravelListView:
 
 
 class TravelView:
-    def __init__(self, root):
+    def __init__(self, root, travel_service):
         self._root = root
+        self._travel_service = travel_service
         self._frame = None
         self._travel_list_view = None
         self._travel_list_frame = None
-        self._travels = [
-            {
-                "name": "yksi", 
-                "guide": "Masa", 
-                "participants": ["Jaana", "Masa", "Topi", "Maisa"]
-            }, 
-            {
-                "name": "kaksi", 
-                "guide": "Jaana", 
-                "participants": ["Jaana", "Topi", "Maisa"]
-            }
-        ]
+        self._travels = None
 
         self._initialize()
 
@@ -78,33 +81,34 @@ class TravelView:
         if self._travel_list_view:
             self._travel_list_view.destroy()
 
+        travels = self._travel_service.get_users_travels()
+
         self._travel_list_view = TravelListView(
             self._travel_list_frame,
-            self._travels
+            travels
         )
 
         self._travel_list_view.pack()
 
     def _initialize_header(self):
-
         headline_label = ttk.Label(
             master=self._frame,
             text="Matkat"
         )
         headline_label.grid(row=0, column=0, padx=5, pady=5)
 
-        subheadline1_label = ttk.Label(
+    def _initialize_title(self):
+        title_label = ttk.Label(
             master=self._frame,
             text="Matkan nimi"
         )
-        subheadline1_label.grid(row=0, column=0, padx=5, pady=5, sticky=constants.W)
+        title_label.grid(row=1, column=0, padx=5, pady=5, sticky=constants.W)
 
-        subheadline2_label = ttk.Label(
+        title2_label = ttk.Label(
             master=self._frame,
             text="Osallistujat"
         )
-        subheadline2_label.grid(row=0, column=1, padx=5, pady=5, sticky=constants.E)
-
+        title2_label.grid(row=1, column=1, padx=5, pady=5, sticky=constants.E)
 
     def _initialize_footer(self):
         create_travel_button = ttk.Button(
@@ -114,7 +118,7 @@ class TravelView:
         )
 
         create_travel_button.grid(
-            row=2,
+            row=3,
             column=1,
             padx=5,
             pady=5,
@@ -126,24 +130,24 @@ class TravelView:
         self._travel_list_frame = ttk.Frame(master=self._frame)
 
         self._initialize_header()
+        self._initialize_title()
         self._initialize_travel_list()
         self._initialize_footer()
 
         self._travel_list_frame.grid(
-            row=1,
+            row=2,
             column=0,
-            columnspan=3,
+            columnspan=4,
             sticky=constants.EW
         )
-
 
     def _handle_create_travel(self):
         travel_content = {
             "name": "Uusi matka",
-            "guide": "Jaana",
-            "participants": ["Jaana", "Maisa"] 
+            "participants": "Maisa"
         }
+        travel = Travel(
+            name=travel_content["name"], participants=travel_content["participants"])
 
-        self._travels.append(travel_content)
+        self._travel_service.create_travel(travel)
         self._initialize_travel_list()
-
