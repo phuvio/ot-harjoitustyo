@@ -12,11 +12,11 @@ Sovelluksen toiminta on testattu Python-versiolla 3.8.
 
 ## Dokumentaatio
 
-- [Vaatimusmäärittely](./dokumentaatio/vaatimusmaarittely.md)
+- [Vaatimusmäärittely](./travel-expense-calculator-app/dokumentaatio/vaatimusmaarittely.md)
 
-- [Työaikakirjanpito](./dokumentaatio/tuntikirjanpito.md)
+- [Työaikakirjanpito](./travel-expense-calculator-app/dokumentaatio/tuntikirjanpito.md)
 
-- [ChangeLog](./dokumentaatio/changelog.md)
+- [ChangeLog](./travel-expense-calculator-app/dokumentaatio/changelog.md)
 
 
 # Asennus
