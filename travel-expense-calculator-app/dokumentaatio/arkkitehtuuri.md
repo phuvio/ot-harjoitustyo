@@ -10,4 +10,6 @@ Pakkaus ui sisältää käyttöliittymästä, services sovelluslogiikasta ja rep
 
 ### Tietokanta skeema
 
-Ohjelman tietokanta skeema
+Ohjelman tietokanta skeema on seuraava:
+
+![Tietokanta skeema](./kuvat/database_schema.png)
