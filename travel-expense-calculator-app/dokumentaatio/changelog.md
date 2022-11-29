@@ -23,4 +23,4 @@
 - Lisätty sisäänkirjautumiseen liittyvät virheilmoitukset
 - Ohjelmassa voi luoda uuden käyttäjän, joka kirjautuu automaattisesti sisään
 - Käyttäjä voi kirjautua sisään jo aikaisemmin luodulla käyttäjätunnuksella
-- Käyttäjä voi luoda uuden matkan (matka on kovakoodattu, kosak matkan lisäys -sivu puuttuu vielä)
+- Käyttäjä voi luoda uuden matkan (matka on kovakoodattu, koska matkan lisäys -sivu puuttuu vielä)
