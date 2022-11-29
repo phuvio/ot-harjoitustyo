@@ -63,7 +63,7 @@ Raportti generoituu *htmlcov*-hakemistoon.
 
 ### Pylint
 
-Tiedoston [.pylintrc](./.pylintrc) määrittelemät tarkistukset voi suorittaa komennolla:
+Tiedoston [.pylintrc](./travel-expense-calculator-app/.pylintrc) määrittelemät tarkistukset voi suorittaa komennolla:
 
 ```bash
 poetry run invoke lint
