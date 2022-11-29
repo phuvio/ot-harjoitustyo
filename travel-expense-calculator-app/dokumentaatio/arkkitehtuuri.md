@@ -4,4 +4,4 @@
 
 Ohjelman rakenne noudattelee kolmitasoista kerrosarkkitehtuuria, ja koodin pakkausrakenne on seuraava:
 
-![Pakkausrakenne](./kuvat/arkkitehtuuri rakenne.png)
+![Pakkausrakenne](./kuvat/arkkitehtuuri-pakkaus.png)
