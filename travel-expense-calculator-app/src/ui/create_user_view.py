@@ -1,11 +1,11 @@
 from tkinter import ttk, StringVar, constants
-from services.user_services import UsernameExistsError
+from services.user_service import user_service, UsernameExistsError
 
 
 class CreateUserView:
     """Käyttäjän rekisteröitymisestä vastaava näkymä"""
 
-    def __init__(self, root, handle_create_user, handle_show_login_view, service):
+    def __init__(self, root, handle_create_user, handle_show_login_view):
         """Luokan konstruktori. Luo uuden rekisteröitymisnäkymän
 
         Args:
@@ -20,7 +20,6 @@ class CreateUserView:
         self._root = root
         self._handle_create_user = handle_create_user
         self._handle_show_login_view = handle_show_login_view
-        self._service = service
         self._frame = None
         self._username_entry = None
         self._password_entry = None
@@ -50,7 +49,7 @@ class CreateUserView:
             return
 
         try:
-            self._service.create_user(username, password)
+            user_service.create_user(username, password)
             self._handle_create_user()
         except UsernameExistsError:
             self._show_error(f"Käyttäjätunnus {username} on jo olemassa")
@@ -96,7 +95,7 @@ class CreateUserView:
         headline_label.grid(row=0, column=0, padx=5, pady=5)
 
     def _initialize(self):
-        """Alustaa näkymän"""
+        """Näyttää uuden käyttäjän luominen -näkymän"""
 
         self._frame = ttk.Frame(master=self._root)
 

@@ -1,4 +1,9 @@
 from entities.travel import Travel
+from database_connection import get_database_connection
+
+
+def get_travel_by_row(row):
+    return Travel(row["name"], row["participants"]) if row else None
 
 
 class TravelRepository:
@@ -9,6 +14,25 @@ class TravelRepository:
         cursor = self._connection.cursor()
 
         cursor.execute("SELECT * FROM travels")
+
+        rows = cursor.fetchall()
+
+        return [Travel(row["name"], row["participants"]) for row in rows]
+
+    def find_by_name(self, name):
+        cursor = self._connection.cursor()
+
+        cursor.execute("SELECT * FROM travels WHERE name = ?", (name,))
+
+        row = cursor.fetchone()
+
+        return get_travel_by_row(row)
+
+    def find_by_participant(self, participant):
+        cursor = self._connection.cursor()
+
+        cursor.execute(
+            "SELECT * FROM travels WHERE participants = ?", (participant,))
 
         rows = cursor.fetchall()
 
@@ -27,8 +51,9 @@ class TravelRepository:
     def delete_all(self):
         cursor = self._connection.cursor()
 
-        sql = ''' DROP TABLE [IF EXISTS] travels
-                  '''
+        cursor.execute("DELETE FROM travels")
 
-        cursor.execute(sql)
         self._connection.commit()
+
+
+travel_repository = TravelRepository(get_database_connection())

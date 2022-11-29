@@ -8,5 +8,5 @@ try:
 except FileNotFoundError:
     print("Cannot connect to database")
 
-DATABASE_FILENAME = os.getenv("DATABASE_FILENAME")
+DATABASE_FILENAME = os.getenv("DATABASE_FILENAME") or "travelexpenses.db"
 DATABASE_FILE_PATH = os.path.join(dirname, "..", "data", DATABASE_FILENAME)

@@ -6,7 +6,7 @@ from ui.create_user_view import CreateUserView
 class UI:
     """Sovelluksen käyttöliittymästä vastaava luokka"""
 
-    def __init__(self, root, travel_service, user_service):
+    def __init__(self, root):
         """Luokan konstruktori. Luo uuden käyttöliittymästä vastaavan luokan
 
         Args:
@@ -17,8 +17,6 @@ class UI:
 
         self._root = root
         self._current_view = None
-        self._travel_service = travel_service
-        self._user_service = user_service
 
     def start(self):
         """Käynnistää käyttöliittymän"""
@@ -38,7 +36,7 @@ class UI:
 
         self._hide_current_view()
 
-        self._current_view = TravelView(self._root, self._travel_service)
+        self._current_view = TravelView(self._root, self._show_login_view)
 
         self._current_view.pack()
 
@@ -50,8 +48,7 @@ class UI:
         self._current_view = LoginView(
             self._root,
             self._show_travel_view,
-            self._show_create_user_view,
-            self._user_service
+            self._show_create_user_view
         )
 
         self._current_view.pack()
@@ -64,8 +61,7 @@ class UI:
         self._current_view = CreateUserView(
             self._root,
             self._show_travel_view,
-            self._show_login_view,
-            self._user_service
+            self._show_login_view
         )
 
         self._current_view.pack()

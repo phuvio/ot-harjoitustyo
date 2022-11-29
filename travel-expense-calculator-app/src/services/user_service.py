@@ -1,4 +1,6 @@
 from entities.user import User
+from repositories.user_repository import (
+    user_repository as default_user_repository)
 
 
 class InvalidCredentialsError(Exception):
@@ -12,9 +14,9 @@ class UsernameExistsError(Exception):
 class UserService:
     """Matkoihin liittyvästä sovelluslogiikasta vastaava luokka"""
 
-    def __init__(self, user_repository):
+    def __init__(self, user_repository=default_user_repository):
         """Luokan konstruktori. Luo uuden matkojen sovelluslogiikasta vastaavan palvelun
-        
+
         Args:
             user_repository: Olio, jolla on UserResopitory-luokkaa vastaavat metodit
         """
@@ -50,10 +52,10 @@ class UserService:
             self._user = user
 
         return user
-    
+
     def login(self, username, password):
         """Kirjaa käyttäjän sisään
-        
+
         Args:
             username: Merkkijono, joka kuvaa kirjautuvan käyttäjän käyttäjätunnusta
             password: Merkkijono, joka kuvaa kirjautuvan käyttäjän salasanaa
@@ -66,11 +68,12 @@ class UserService:
                 Virhe, joka tapahtuu, kun käyttäjätunnus ja salasana eivät täsmää
 
         """
-        
+
         user = self._user_repository.find_by_username(username)
-        
+
         if not user or user.password != password:
-            raise InvalidCredentialsError("Virheellinen käyttäjätunnus tai salasana")
+            raise InvalidCredentialsError(
+                "Virheellinen käyttäjätunnus tai salasana")
 
         self._user = user
 
@@ -78,7 +81,7 @@ class UserService:
 
     def get_current_user(self):
         """Palauttaa kirjautuneen käyttäjän
-        
+
         Returns:
             Kirjautunut käyttäjä User-olion muodossa
         """
@@ -89,3 +92,15 @@ class UserService:
         """Kirjaa nykyisen käyttäjän ulos"""
 
         self._user = None
+
+    def get_users(self):
+        """Palauttaa kaikki käyttäjät
+
+        Returns:
+            User-oliota sisältä lista kaikista käyttäjistä.
+        """
+
+        return self._user_repository.find_all()
+
+
+user_service = UserService()

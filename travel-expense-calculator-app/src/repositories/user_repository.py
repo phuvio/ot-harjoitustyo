@@ -1,4 +1,5 @@
 from entities.user import User
+from database_connection import get_database_connection
 
 
 def get_user_by_row(row):
@@ -44,7 +45,7 @@ class UserRepository:
         """
 
         cursor = self._connection.cursor()
-        
+
         cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
 
         row = cursor.fetchone()
@@ -60,10 +61,11 @@ class UserRepository:
         Returns:
             Tallennettu käyttäjä User-oliona
         """
-        
+
         cursor = self._connection.cursor()
 
-        cursor.execute("INSERT INTO users (username, password) VALUES (?,?)", (user.username, user.password))
+        cursor.execute("INSERT INTO users (username, password) VALUES (?,?)",
+                       (user.username, user.password))
 
         self._connection.commit()
 
@@ -78,3 +80,6 @@ class UserRepository:
         cursor.execute("DELETE FROM users")
 
         self._connection.commit()
+
+
+user_repository = UserRepository(get_database_connection())

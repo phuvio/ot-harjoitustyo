@@ -47,7 +47,7 @@ def create_tables(connection):
 
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS users (
-            name TEXT PRIMARY KEY,
+            username TEXT PRIMARY KEY,
             password TEXT
         )
     """)
@@ -81,7 +81,7 @@ def initialize_database():
 
     connection = get_database_connection()
 
-    drop_tables(connection)
+    # drop_tables(connection)
     create_tables(connection)
 
 

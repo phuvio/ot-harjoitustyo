@@ -1,11 +1,11 @@
 from tkinter import ttk, StringVar, constants
-from services.user_services import InvalidCredentialsError
+from services.user_service import user_service, InvalidCredentialsError
 
 
 class LoginView:
     """Käyttäjän kirjautumisesta vastaava näkymä"""
 
-    def __init__(self, root, handle_login, handle_show_create_user_view, service):
+    def __init__(self, root, handle_login, handle_show_create_user_view):
         """Luokan konstruktori. Luo uuden kirjautumisnäkymän
 
         Args:
@@ -20,7 +20,6 @@ class LoginView:
         self._root = root
         self._handle_login = handle_login
         self._handle_show_create_user_view = handle_show_create_user_view
-        self._service = service
         self._frame = None
         self._username_entry = None
         self._password_entry = None
@@ -44,14 +43,14 @@ class LoginView:
         password = self._password_entry.get()
 
         try:
-            self._service.login(username, password)
+            user_service.login(username, password)
             self._handle_login()
         except InvalidCredentialsError:
             self._show_error("Väärä käyttäjätunnus tai salasana")
 
     def _show_error(self, message):
         self._error_variable.set(message)
-        self._error_label.grid()
+        self._error_label.grid(row=1, column=0)
 
     def _hide_error(self):
         self._error_label.grid_remove()

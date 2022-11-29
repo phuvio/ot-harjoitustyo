@@ -7,18 +7,27 @@ class TestTravelRepository(unittest.TestCase):
     def setUp(self):
         travel_repository.delete_all()
 
-        self.travel_a = Travel({
-            "name": "Eka matka",
-            "participants": "Maisa"
-        })
-        self.travel_b = Travel({
-            "name": "Toka matka",
-            "participants": "Topi"
-        })
+        self._travel_a = Travel("Eka matka", "Maisa")
+        self._travel_b = Travel("Toka matka", "Topi")
 
-    def test_create(self):
-        travel_repository.create(self.travel_a)
+    def test_create_one_travel(self):
+        travel_repository.create(self._travel_a)
         travels = travel_repository.find_all()
 
-        self.assertEqual(len(travels, 1))
-        self.assertEqual(travels[0].name, self.travel_a.name)
+        self.assertEqual(len(travels), 1)
+        self.assertEqual(travels[0].name, self._travel_a.name)
+
+    def test_create_two_travels(self):
+        travel_repository.create(self._travel_a)
+        travel_repository.create(self._travel_b)
+        travels = travel_repository.find_all()
+
+        self.assertEqual(len(travels), 2)
+        self.assertEqual(travels[0].name, self._travel_a.name)
+        self.assertEqual(travels[1].name, self._travel_b.name)
+
+    def test_find_travel_by_name(self):
+        travel_repository.create(self._travel_a)
+        travel = travel_repository.find_by_name("Eka matka")
+
+        self.assertEqual(travel.name, self._travel_a.name)
