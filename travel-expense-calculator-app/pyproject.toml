@@ -9,6 +9,7 @@ packages = [{include = "travel_expense_calculator_app"}]
 [tool.poetry.dependencies]
 python = "^3.8"
 invoke = "^1.7.3"
+python-dotenv = "^0.21.0"
 
 
 [tool.poetry.group.dev.dependencies]
