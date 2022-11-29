@@ -8,8 +8,8 @@ Ohjelman rakenne noudattelee kolmitasoista kerrosarkkitehtuuria, ja koodin pakka
 
 Pakkaus ui sisältää käyttöliittymästä, services sovelluslogiikasta ja repositories tietojen pysyväistallennuksesta vastaavan koodin. Pakkaus entities sisältää luokkia, jotka kuvastavat sovelluksen käyttämiä tietokohteita.
 
-### Tietokanta skeema
+### Tietokantaskeema
 
-Ohjelman tietokanta skeema on seuraava:
+Ohjelman tietokantaskeema on seuraava:
 
 ![Tietokanta skeema](./kuvat/database-schema.png)
