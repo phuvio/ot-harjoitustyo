@@ -27,13 +27,7 @@ Sovelluksen toiminta on testattu Python-versiolla 3.8.
 poetry install
 ```
 
-2. Suorita vaadittavat alustustoimenpiteet komennolla:
-
-```bash
-poetry run invoke build
-```
-
-3. Käynnistä sovellus komennolla:
+2. Käynnistä sovellus komennolla:
 
 ```bash
 poetry run invoke start
@@ -57,5 +51,29 @@ Testit suoritetaan komennolla:
 poetry run invoke test
 ```
 
-Testit eivät tällä hetkellä mene läpi.
+### Testikattavuus
+
+Testikattavuusraportin voi generoida komennolla:
+
+```bash
+poetry run invoke coverage-report
+```
+
+Raportti generoituu *htmlcov*-hakemistoon.
+
+### Pylint
+
+Tiedoston [.pylintrc](./.pylintrc) määrittelemät tarkistukset voi suorittaa komennolla:
+
+```bash
+poetry run invoke lint
+```
+
+### Autopep
+
+Koodin formatointi automaattisesti PEP 8-tyyliohjeiden mukaisesti onnistuu komennolla:
+
+```bash
+poetry run invoke format
+```
 
