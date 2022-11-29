@@ -18,7 +18,7 @@ Sovelluksen toiminta on testattu Python-versiolla 3.8.
 
 - [ChangeLog](./travel-expense-calculator-app/dokumentaatio/changelog.md)
 
-- [Arkkitehtuuri](./travel-expense-calculator-app/dokumentaatio/arkkitehtuuri.md)
+- [Arkkitehtuurikuvaus](./travel-expense-calculator-app/dokumentaatio/arkkitehtuuri.md)
 
 
 # Asennus
