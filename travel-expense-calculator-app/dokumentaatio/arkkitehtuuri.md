@@ -57,8 +57,8 @@ sequenceDiagram
   UI->>+S: create_user("matti", "matti123")
   S->>+R: find_by_username("matti")
   R-->>-S: None
-  S->>matti: User("matti", "matti123")
   S->>+R: create(matti)
+  R->>matti: User("matti", "matti123")
   R-->> -S: user
   S-->>-UI: user
   UI->>UI: show_travel_view()
