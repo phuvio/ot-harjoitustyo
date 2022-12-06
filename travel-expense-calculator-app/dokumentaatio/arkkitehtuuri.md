@@ -29,11 +29,9 @@ Kun kirjautumisnäkymän syötekenttiin kirjoitetetataan käyttäjätunnus ja sa
    participant U as UI
    participant S as UserService
    participant R as UserRepository
-   participant H as Petteri
    K->>U: click "Sisäänkirjautuminen" button
    U->>+S: login("Petteri", "salasana")
    S->>+R: find_by_username("Petteri")
-   R->>H: User("Petteri", "salasana")
    R->>-S: user
    S->>-U: user
    U->>U: show_travel_view()
