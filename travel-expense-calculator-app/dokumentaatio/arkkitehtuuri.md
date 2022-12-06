@@ -49,7 +49,7 @@ sequenceDiagram
   actor K as Käyttäjä
   participant UI
   participant S as UserService
-  participant R UserRepository
+  participant R as UserRepository
   participant matti
   K->>UI: click "Luo uusi käyttäjä" button
   UI->>+S: create_user("matti", "matti123")
