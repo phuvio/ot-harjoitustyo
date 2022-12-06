@@ -41,7 +41,7 @@ def create_tables(connection):
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS travels (
             name TEXT PRIMARY KEY,
-            participants TEXT
+            guide TEXT
         )
     """)
 
@@ -54,20 +54,23 @@ def create_tables(connection):
 
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS participants (
-            name TEXT PRIMARY KEY,
+            name TEXT,
             travel TEXT,
-            guide TEXT
+            guide TEXT,
+            participant_id TEXT PRIMARY KEY
         )
     """)
 
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS payments (
-            name TEXT PRIMARY KEY,
+            travel TEXT,
+            receipt_name TEXT,
             date TEXT,
-            sum NUMERIC,
+            amount TEXT,
             action TEXT,
             payer TEXT,
-            info TEXT
+            information TEXT,
+            payment_id TEXT PRIMARY KEY
         )
     """)
 

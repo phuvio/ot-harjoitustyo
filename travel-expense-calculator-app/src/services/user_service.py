@@ -15,9 +15,11 @@ class UserService:
     """Matkoihin liittyvästä sovelluslogiikasta vastaava luokka"""
 
     def __init__(self, user_repository=default_user_repository):
-        """Luokan konstruktori. Luo uuden matkojen sovelluslogiikasta vastaavan palvelun
+        """Luokan konstruktori. Luo uuden käyttäjään liittyvästä sovelluslogiikasta
+           vastaavan palvelun
 
         Args:
+            user: Kirjautunut käyttäjä User-olion muodossa
             user_repository: Olio, jolla on UserResopitory-luokkaa vastaavat metodit
         """
         self._user = None
@@ -97,7 +99,7 @@ class UserService:
         """Palauttaa kaikki käyttäjät
 
         Returns:
-            User-oliota sisältä lista kaikista käyttäjistä.
+            User-oliota sisältävä lista kaikista käyttäjistä.
         """
 
         return self._user_repository.find_all()

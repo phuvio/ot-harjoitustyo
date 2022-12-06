@@ -12,7 +12,8 @@ class CreateUserView:
             root:
                 Tkinter-elementti, jonka sisään näkymä alustetaan
             handle_create_user:
-                Kutsuttava arvo, jota kutsutaan kun käyttäjä luodaan. Saa argumenteikseen käyttäjätunnuksen ja salasanan
+                Kutsuttava arvo, jota kutsutaan kun käyttäjä luodaan.
+                Saa argumenteikseen käyttäjätunnuksen ja salasanan
             handle_show_login_user:
                 Kutsuttava arvo, jota kutsutaan kun siirrytään kirjautumisnäkymään
         """

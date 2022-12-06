@@ -2,13 +2,13 @@ from tkinter import ttk, constants
 from entities.travel import Travel
 from services.travel_service import travel_service
 from services.user_service import user_service
-import random
+from services.participant_service import participant_service
 
 
 class TravelListView:
     """Matkojen listauksesta vastaava näkymä"""
 
-    def __init__(self, root, travels):
+    def __init__(self, root, travels, handle_show_payments_view):
         """Luokan konstruktori. Luo uuden matkojen listausnäkymän
 
         Args:
@@ -16,12 +16,15 @@ class TravelListView:
                 Tkinter-elementti, jonka sisään näkymä alustetaan
             travels:
                 Lista Travel-olioita, jotka näytetään näkymässä
+            handle_show_payments_view:
+                Kutsuttava arvo, jota kutsutaan kun näytetään matkan maksut
         """
         self._root = root
         self._travels = travels
+        self._handle_show_payments_view = handle_show_payments_view
         self._frame = None
 
-        self.initialize()
+        self._initialize()
 
     def pack(self):
         """Näyttää näkymän"""
@@ -42,18 +45,39 @@ class TravelListView:
         """
         item_frame = ttk.Frame(master=self._frame)
 
-        name_label = ttk.Label(master=item_frame, text=travel.name)
-        name_label.grid(row=1, column=0, padx=(
-            10, 5), pady=5, sticky=constants.W)
+        name_button = ttk.Button(
+            master=item_frame,
+            text=travel.name,
+            command=lambda: self._travel_button_function(travel)
+        )
+
+        name_button.grid(row=1, column=0, padx=5, pady=5, sticky=constants.W)
+
+        participants = participant_service.get_participants_by_guide_and_travel(
+            travel.guide, travel.name)
+        participants_names = []
+        for participant in participants:
+            participants_names.append(participant.name)
 
         participants_label = ttk.Label(
-            master=item_frame, text=travel.participants)
+            master=item_frame, text=participants_names)
         participants_label.grid(row=1, columnspan=3,
                                 padx=5, pady=5, sticky=constants.E)
 
         item_frame.grid_columnconfigure(0, weight=1, minsize=50)
         item_frame.grid_columnconfigure(1, weight=1)
         item_frame.pack(fill=constants.X)
+
+    def _travel_button_function(self, travel):
+        """Matkan valinta -nappulan funktio, joka valitsee matkan ja siirtyy maksut-näkymään
+
+        Args:
+            travel: Valittu matka Travel-olion muodossa
+        """
+
+        travel_service._travel = travel
+
+        self._handle_show_payments_view()
 
     def _initialize_no_saved_travels(self):
         """Näyttää tekstin Ei tallennettuja matkoja"""
@@ -65,7 +89,7 @@ class TravelListView:
 
         item_frame.pack(fill=constants.X)
 
-    def initialize(self):
+    def _initialize(self):
         """Näyttää luettelon matkoista"""
 
         self._frame = ttk.Frame(master=self._root)
@@ -78,7 +102,9 @@ class TravelListView:
 
 
 class TravelView:
-    def __init__(self, root, handle_logout):
+    """Matkojen näyttämisestä vastaava näkymä"""
+
+    def __init__(self, root, handle_logout, handle_show_create_travel_view, hadle_show_payments_view):
         """Matkojen listauksesta vastaava näkymä
 
         Args:
@@ -86,9 +112,15 @@ class TravelView:
                 Tkinter-elementti, jonka sisään näkymä alustetaan
             handle_logout:
                 Kutsuttava arvo, jota kutsutaan kun käyttäjä kirjautuu ulos
+            handle_show_create_travel_view:
+                Kutsuttava arvo, jota kutsutaan kun lisätään matka
+            handle_show_payments_view:
+                Kutsuttava arvo, jota kutsutaan kun katsotaan matkaan liittyvät maksut
         """
         self._root = root
         self._handle_logout = handle_logout
+        self._handel_show_create_travel_view = handle_show_create_travel_view
+        self._handle_show_payments_view = hadle_show_payments_view
         self._user = user_service.get_current_user()
         self._frame = None
         self._travel_list_view = None
@@ -115,7 +147,8 @@ class TravelView:
 
         self._travel_list_view = TravelListView(
             self._travel_list_frame,
-            travels
+            travels,
+            self._handle_show_payments_view
         )
 
         self._travel_list_view.pack()
@@ -149,7 +182,7 @@ class TravelView:
 
         title2_label = ttk.Label(
             master=self._frame,
-            text="Osallistujat"
+            text="Matkustajat"
         )
         title2_label.grid(row=1, column=1, padx=5, pady=5, sticky=constants.E)
 
@@ -159,7 +192,7 @@ class TravelView:
         create_travel_button = ttk.Button(
             master=self._frame,
             text="Lisää uusi matka",
-            command=self._handle_create_travel
+            command=self._handel_show_create_travel_view
         )
 
         create_travel_button.grid(
@@ -187,10 +220,3 @@ class TravelView:
             columnspan=4,
             sticky=constants.EW
         )
-
-    def _handle_create_travel(self):
-
-        travel_name = "Matka numero " + str(random.randint(1, 100))
-
-        travel_service.create_travel(travel_name, self._user.username)
-        self._initialize_travel_list()

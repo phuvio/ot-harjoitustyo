@@ -14,7 +14,7 @@ class UserRepository:
         """Luokan konstruktori
 
         Args:
-            Connection: Tietokantayhteyden Connection-olio
+            connection: Tietokantayhteyden Connection-olio
         """
 
         self._connection = connection

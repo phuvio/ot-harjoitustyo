@@ -2,6 +2,7 @@ import unittest
 from entities.travel import Travel
 from entities.user import User
 from services.travel_service import TravelService
+from repositories.travel_repository import travel_repository
 
 
 class FakeTravelRepository:
@@ -19,9 +20,9 @@ class FakeTravelRepository:
 
         return list(user_travels)
 
-    def find_by_participant(self, participant):
+    def find_by_guide(self, guide):
         user_travels = filter(
-            lambda travel: travel.participants == participant,
+            lambda travel: travel.guide == guide,
             self.travels
         )
 
@@ -45,9 +46,9 @@ class TestTravelService(unittest.TestCase):
 
     def test_create_travel(self):
         name = self._travel_eka.name
-        participants = self._travel_eka.participants
+        guide = self._travel_eka.guide
 
-        self.travel_service.create_travel(name, participants)
+        self.travel_service.create_travel(name, guide)
         travels = self.travel_service.get_all_travels()
 
         self.assertEqual(len(travels), 1)
@@ -55,14 +56,14 @@ class TestTravelService(unittest.TestCase):
 
     def test_create_two_travels(self):
         name = self._travel_eka.name
-        participants = self._travel_eka.participants
+        guide = self._travel_eka.guide
 
-        self.travel_service.create_travel(name, participants)
+        self.travel_service.create_travel(name, guide)
 
         name = self._travel_toka.name
-        participants = self._travel_toka.participants
+        guide = self._travel_toka.guide
 
-        self.travel_service.create_travel(name, participants)
+        self.travel_service.create_travel(name, guide)
 
         travels = self.travel_service.get_all_travels()
 
@@ -72,11 +73,20 @@ class TestTravelService(unittest.TestCase):
 
     def test_travels_by_name(self):
         self.travel_service.create_travel(
-            self._travel_eka.name, self._travel_eka.participants)
+            self._travel_eka.name, self._travel_eka.guide)
         self.travel_service.create_travel(
-            self._travel_toka.name, self._travel_toka.participants)
+            self._travel_toka.name, self._travel_toka.guide)
 
-        travel = self.travel_service.get_users_travels(self._travel_eka.participants)
+        travel = self.travel_service.get_users_travels(self._travel_eka.guide)
 
         self.assertEqual(len(travel), 1)
         self.assertEqual(travel[0].name, self._travel_eka.name)
+
+    def test_travels_by_name_when_no_saved_travels(self):
+        self.travel_service.create_travel(
+            self._travel_eka.name, self._travel_eka.guide
+        )
+
+        travel = self.travel_service.get_users_travels(self._travel_toka.guide)
+
+        self.assertEqual(len(travel), 0)

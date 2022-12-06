@@ -8,11 +8,18 @@
 |18.11. |1     |tutustuminen tkinteriin |
 |19.11. |3     |tutustuminen tkinteriin |
 |20.11. |3     |Travel-näkymän luominen |
-|22.11. |2     |sovelluslogiikan rakentaminen |
+|22.11. |2     |matkoihin ja käyttäjiin liittyvän sovelluslogiikan rakentaminen |
 |22.11. |2     |testaus |
-|25.11. |2     |tietokanta skeeman muutos |
-|26.11. |4     |tietokanta skeeman muutos |
+|25.11. |2     |tietokantaskeeman muutos |
+|26.11. |4     |tietokantaskeeman muutos |
 |27.11  |2     |tarvittavien entiteettien luominen |
 |27.11. |3     |Luo uusi käyttäjä ja Kirjaudu sisään -näkymien luominen 
-|28.11. |3     |testit TravelRepository, TravelService, UserRepository, UserService |
-| yht.  |32    | |
+|28.11. |3     |testit luokille TravelRepository, TravelService, UserRepository ja UserService |
+|1.12.  |1     |Matkustajiin liittyvät sovelluslogiikan rakentaminen |
+|2.12.  |1     |Maksuihin liittyvät sovelluslogiikan rakentaminen |
+|3.12   |4     |Luo uusi matkustaja ja Luo uusi matka -näkymien luominen |
+|4.12.  |2     |Maksut-näkymän luominen |
+|4.12.  |2     |testit luokille ParticipantRepository ja ParitcipantService |
+|5.12.  |2     |testit luokille PaymentRepository ja PaymentService |
+|6.12.  |3     |dokumentointi |
+| yht.  |47    | |

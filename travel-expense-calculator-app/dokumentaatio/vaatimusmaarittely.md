@@ -10,59 +10,66 @@ Sovellusta voi käyttää useampi rekisteröitynyt käyttäjä. Kaikilla käytt�
 
 ## Käyttöliittymäluonnos
 
-Sovellus koostuu seitsemästä eri näkymästä.
+Sovellus koostuu yhdeksästä eri näkymästä.
 
 ![Käyttöliittymäluonnos](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/dokumentaatio/kuvat/kayttoliittymaluonnos.jpg)
 
-Sovellus aukeaa *kirjautumisnäkymään*, josta on mahdollista siirytä *uuden käyttäjän luomisnäkymään* tai onnistuneen kirjautumisen yhteydessä *matkaluetteloon*. *Matkaluettelosta* voi siirtyä *uuden matkan luomisnäkymään*, jossa voi luoda uuden matkan ja valita sille osallistujat sekä matkanjohtajan, tai valita jonkun luettelossa olevista matkoista. Tällöin siirrytään valitun matkan *matka-näkymään*, jossa näkyvät matkan maksut ja kuka maksun on maksanut. Matkanjohtaja voi lisätä uusia maksuja luetteloon. *Uusien maksujen näkymässä* luodaan uusi maksu, syötetään maksulle summa, päivämäärä ja maksajat sekä valitaan kenelle maksu kohdistuu. *Matka-näkymästä* voi jokainen käyttäjä valita myös *yhteenveto-näkymän*, jossa on yhteenveto jokaisen matkalaisen suorittamista maksuista, laskelma jokaiselle matkalaiselle kohdistuneista maksuista sekä jokaisen matkalaisen plus-miinus-tilasto.
+Sovellus aukeaa *kirjautumisnäkymään*, josta on mahdollista siirytä *uuden käyttäjän luomisnäkymään* tai onnistuneen kirjautumisen yhteydessä *matkat-näkymään*. *Matkat-näkymässä* voi siirtyä *uuden matkan luomisnäkymään* tai valita jonkun luettelossa olevista matkoista. *Uuden matkan luomisnäkymässä* voi luoda uuden matkan ja valita sille osallistujat sekä matkanjohtajan tai siirtyä *luo uusi matkustaja -näkymään*. *Luo uusi matkustaja -näkymässä* voi luoda uuden matkustajan. *Matkat-näkymästä* voi siirtyä *maksut-näkymään* valitsemalla jonkun *matkat-näkymässä* näkyvistä matkoista. *Maksut-näkymässä* näkyvät matkan maksut ja kuka maksun on maksanut. Matkalle voi lisätä uusia maksuja *luo uusi maksu -näkymässä*. *Luo uusi maksu -näkymässä* luodaan uusi maksu ja syötetään maksun tiedot. *Maksut-näkymästä* voi valita yksittäisen maksun, jolloin "maksun tiedot -näkymässä" näkyvät laskun kaikki tiedot. Lisäksi *maksut-näkymästä* pääsee myös *yhteenveto-näkymän*, jossa on yhteenveto jokaisen matkalaisen suorittamista maksuista, laskelma jokaiselle matkalaiselle kohdistuneista ostoksista sekä jokaisen matkalaisen plus-miinus-tilasto.
 
 ## Perusversion tarjoama toiminnallisuus
 
 ### Ennen kirjautumista
 
-- Käyttäjä voi luoda järjestelmään käyttäjätunnuksen
+- Käyttäjä voi luoda järjestelmään käyttäjätunnuksen - tehty
   - Käyttäjätunnuksen täytyy olla uniikki ja pituudeltaan vähintään 3 merkkiä
-- Käyttäjä voi kirjautua järjestelmään
-  - Kirjautuminen onnistuu syötettäessä olemassaoleva käyttäjätunnus ja salasana kirjaudu sisään -näkymässä
+- Käyttäjä voi kirjautua järjestelmään - tehty
+  - Kirjautuminen onnistuu syötettäessä olemassaoleva käyttäjätunnus ja salasana kirjaudu sisään -näkymässä - tehty
 
-### Kirjautumisen jälkeen
+### *Matkat-näkymä*
  
-- Käyttäjä näkee luettelon sovellukseen luoduista matkoista
-- Käyttäjä voi luoda uuden matkan *lisää matka -näkymässä*
-- Käyttäjä voi valita luettelosta matkan, jolloin hän pääsee valitun matkan *matkan laskut -näkymään*
+- Käyttäjä näkee luettelon sovellukseen luoduista matkoista - tehty
+- Käyttäjä voi luoda uuden matkan *lisää matka -näkymässä* - tehty
+- Käyttäjä voi valita luettelosta matkan, jolloin hän pääsee valitun matkan *maksut-näkymään* - tehty
 
 ### *Lisää matka -näkymä*
-- Käyttäjä voi luoda uuden matkan
-  - Matkalle pitää antaa nimi, jonka täytyy olla uniikki
-  - Matkalle valitaan osallistujat, jotka voivat olla sovellukseen käyttäjätunnuksen luoneita käyttäjiä
-  - Matkalle valitaan matkanjohtaja, jolla on oikeus lisätä uusia maksuja matkalle
+- Käyttäjä voi luoda uuden matkan - tehty
+  - Matkalle pitää antaa nimi, jonka täytyy olla uniikki - tehty
+  - Matkalle valitaan osallistujat, joita kirjautunut käyttäjä voi luoda - tehty
 
-### *Matka-näkymä*
+### *Luo uusi matkustaja -näkymä*
+- Kirjautunut käyttäjä voi luoda uuden matkustajan - tehty
+  - Matkustajalle pitää antaa nimi, jonka täytyy olla uniikki - tehty
 
-- Käyttäjä näkee matkalle tallennetut maksut
+### *Maksut-näkymä*
+
+- Käyttäjä näkee matkalle tallennetut maksut - tehty
   - Jokaisen maksun kohdalla näkyvät
     - Maksun nimi
     - Maksun summa
-    - Maksajan/ien nimi
-    - Kenelle maksu kohdistuu
-    - Maksun päivämäärä
-- Jos käyttäjä on matkan matkanjohtaja, voi hän lisätä uuden maksun matkalle
-- Jokainen käyttäjä voi siirtyä *yhteenveto-näkymään*, jossa on matkan maksujen yhteenveto
+    - Maksajan nimi
+- Käyttäjä voi hän lisätä uuden maksun matkalle siirtymällä *luo uusi maksu -näkymään* - tehty
+- Valitsemalla maksun, siirtyy *maksun tiedot -näkymään*, jossa näkyvät kyseisen maksun tiedot
+- Käyttäjä voi siirtyä *yhteenveto-näkymään*, jossa on matkan maksujen yhteenveto
 
 ### *Uusi lasku -näkymä*
 
-- Matkanjohtaja kirjaa 
+- Käyttäjä kirjaa 
   - Uuden maksun nimen, jonka pitää olla uniikki
   - Maksun summan
   - Maksun maksajan
   - Miten maksu jakautuu matkan osallistujien kesken
   - Maksun päivämäärän 
+  - Maksun lisätiedot
+
+### *Maksun tiedot -näkymä*
+
+- Näyttää valitun maksun tiedot 
 
 ### *Yhteenveto-näkymä*
 
 - *Yhteenveto-näkymässä* on laskelma, jossa näkyvät
   - Jokaisen matkalaisetn maksamien laskujen summa
-  - Jokaiseen matkalaiseen kohdistuvien laskujen summa
+  - Jokaiseen matkalaiseen kohdistuvien ostosten summa
   - Jokaisen matkalaisen plus-miinus-tilasto, jossa näkyy onko matkalainen maksanut enemmän tai vähemmän kuin oman osuutensa
 
 ## Jatkokehitysideoita
@@ -72,7 +79,10 @@ Perusversion jälkeen on mahdollista lisätä, mikäli aikaa jää, seuraavia to
 - Lisätä yhteenveto-näkymään laskelma miten matkan päätyttyä maksut tasataan 
 - Kieliversiot
 - Matkan tietojen muokkaaminen
-- Laskun tietojen muokkaaminen
+- Matkan poistaminen
+- Maksun tietojen muokkaaminen
+- Maksun poistaminen
+- Matkustajan poistaminen
 - Yhteenvedon lähettäminen pdf-tiedostona annettuun sähköpostiin
 - Pääkäyttäjäroolin lisääminen
-  - Pääkäyttäjä voi poistaa matkoja ja henkilöitä
+  - Pääkäyttäjä voi poistaa käyttäjiä

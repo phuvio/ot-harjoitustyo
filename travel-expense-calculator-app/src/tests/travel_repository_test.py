@@ -28,6 +28,21 @@ class TestTravelRepository(unittest.TestCase):
 
     def test_find_travel_by_name(self):
         travel_repository.create(self._travel_a)
-        travel = travel_repository.find_by_name("Eka matka")
+        travel = travel_repository.find_by_name(self._travel_a.name)
 
         self.assertEqual(travel.name, self._travel_a.name)
+
+    def test_find_travels_by_guide(self):
+        travel_repository.create(self._travel_a)
+        travel_repository.create(self._travel_b)
+
+        travel = travel_repository.find_by_guide(self._travel_a.guide)
+
+        self.assertEqual(len(travel), 1)
+
+        travel_repository.create(Travel("Kolmas matka", self._travel_a.guide))
+
+        travel = travel_repository.find_by_guide(self._travel_a.guide)
+
+        self.assertEqual(len(travel), 2)
+        self.assertEqual(travel[1].name, "Kolmas matka")

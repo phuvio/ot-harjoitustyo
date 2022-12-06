@@ -5,6 +5,7 @@ from services.user_service import (
     InvalidCredentialsError,
     UsernameExistsError
 )
+from repositories.user_repository import user_repository
 
 
 class FakeUserRepository:

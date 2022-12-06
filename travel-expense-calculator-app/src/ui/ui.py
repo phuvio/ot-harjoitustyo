@@ -1,6 +1,10 @@
 from ui.travels_view import TravelView
 from ui.login_view import LoginView
 from ui.create_user_view import CreateUserView
+from ui.create_participant_view import CreateParticipantView
+from ui.create_travel_view import CreateTravelView
+from ui.payments_view import PaymentView
+from ui.create_payment_view import CreatePaymentView
 
 
 class UI:
@@ -36,7 +40,12 @@ class UI:
 
         self._hide_current_view()
 
-        self._current_view = TravelView(self._root, self._show_login_view)
+        self._current_view = TravelView(
+            self._root,
+            self._show_login_view,
+            self._show_create_travel_view,
+            self._show_payments_view
+        )
 
         self._current_view.pack()
 
@@ -61,6 +70,63 @@ class UI:
         self._current_view = CreateUserView(
             self._root,
             self._show_travel_view,
+            self._show_login_view
+        )
+
+        self._current_view.pack()
+
+    def _show_create_travel_view(self):
+        """Näyttää Luo uusi matka -näkymän"""
+
+        self._hide_current_view()
+
+        self._current_view = CreateTravelView(
+            self._root,
+            self._show_travel_view,
+            self._show_travel_view,
+            self._show_create_participant_view,
+            self._show_login_view
+        )
+
+        self._current_view.pack()
+
+    def _show_create_participant_view(self):
+        """Näyttää Luo uusi matkustaja -näkymän"""
+
+        self._hide_current_view()
+
+        self._current_view = CreateParticipantView(
+            self._root,
+            self._show_create_travel_view,
+            self._show_create_travel_view,
+            self._show_login_view
+        )
+
+        self._current_view.pack()
+
+    def _show_payments_view(self):
+        """Näyttää Maksut-näkymän"""
+
+        self._hide_current_view()
+
+        self._current_view = PaymentView(
+            self._root,
+            self._show_login_view,
+            self._show_create_payment_view,
+            self._show_travel_view
+        )
+
+        self._current_view.pack()
+
+    def _show_create_payment_view(self):
+        """Näyttää Luo uusi maksu -näkymän"""
+
+        self._hide_current_view()
+
+        self._current_view = CreatePaymentView(
+            self._root,
+            self._show_payments_view,
+            self._show_payments_view,
             self._show_login_view
         )
 

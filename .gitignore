@@ -2,5 +2,9 @@
 __pycache__
 .coverage
 htmlcov
-data
-
+data/travelexpenses.db
+data/test-travelexpenses.db
+travel-expense-calculator-app/data/travelexpenses.db
+travel-expense-calculator-app/data/test-travelexpenses.db
+travelexpenses.db
+test-travelexpenses.db

@@ -11,7 +11,7 @@
 
 ## Viikko 4
 
-- Muokattu tietokanta skeemaa
+- Muokattu tietokantaskeemaa
 - Lisätty Payment-entiteetti
 - Lisätty Participant-entiteetti
 - Lisätty User-entiteetti
@@ -21,6 +21,23 @@
 - Lisätty Luo uusi käyttäjä -näkymä
 - Lisätty uuden käyttäjän luomiseen liittyvät virheilmoitukset
 - Lisätty sisäänkirjautumiseen liittyvät virheilmoitukset
+- Tehty testit luokille TravelRepository, TravelService, UserRepository ja UserService
 - Ohjelmassa voi luoda uuden käyttäjän, joka kirjautuu automaattisesti sisään
 - Käyttäjä voi kirjautua sisään jo aikaisemmin luodulla käyttäjätunnuksella
 - Käyttäjä voi luoda uuden matkan (matka on kovakoodattu, koska matkan lisäys -sivu puuttuu vielä)
+
+## Viikko 5
+
+- Lisätty ParticipantRepository-luokka, joka vastaa matkustajan tallennuksesta sqlite-tietokantaan
+- Lisätty ParticipantService-luokka, joka vastaa matkustajaan liittyvästä sovelluslogiikan koodista
+- Lisätty Luo uusi matka -näkymä
+- Lisätty Luo uusi matkustaja -näkymä
+- Lisätty uuden matkan luomiseen liittyvät virheilmoitukset
+- Lisätty uuden matkustajan luomiseen liittyvät virheilmoitukset
+- Lisätty PaymentRepository-luokka, joka vastaa maksun tallennuksesta sqlite-tietokantaan
+- Lisätty PaymentService-luokka, joka vastaa maksuun liittyvästä sovelluslogiikan koodista
+- Lisätty Maksut-näkymä
+- Tehty testit luokille ParticipantRepository, ParticipantService, PaymentRepository ja PaymentService
+- Käyttäjä voi luoda uuden matkan
+- Käyttäjä voi luoda uuden matkustajan
+- Käyttäjä voi valita luodun matkan Matka-näkymässä, jolloin näkymäksi muuttuu Maksut-näkymä
