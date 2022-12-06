@@ -27,20 +27,13 @@ Kun kirjautumisnäkymän syötekenttiin kirjoitetetataan käyttäjätunnus ja sa
  sequenceDiagram
    Actor K as Käyttäjä
    participant U as UI
-   participant F as FuelTank
-   participant E as Engine
+   participant S as UserService
+   participant R as UserRepository
    K->>U: click "Sisäänkirjautuminen" button
-   M->>F: FuelTank()
-   M->>F: fill(40)
-   M->>E: Engine(FuelTank())
-   P->>M: drive()
-   M->>E: start()
-   E->>F: consume(5)
-   M->>+E: is_running()
-   E->>+F:fuel_contents()
-   F-->>-E: 35
-   E-->>-M: True
-   M->>E: use_energy()
-   E->>F: consume(10)
+   U->>S: login("nimi", "salasana")
+   S->>R: find_by_username("nimi")
+   R->>S: user
+   S->>U: user
+   U->>U: show_travel_view
 
 ```
