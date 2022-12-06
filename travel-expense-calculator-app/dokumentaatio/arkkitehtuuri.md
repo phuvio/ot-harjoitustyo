@@ -23,7 +23,7 @@ Ohjelman päätoiminnallisuudet sekvenssikaavioina:
 
 ```mermaid
  sequenceDiagram
-   participant P as Main
+   Actor P as Main
    participant M as Machine
    participant F as FuelTank
    participant E as Engine
