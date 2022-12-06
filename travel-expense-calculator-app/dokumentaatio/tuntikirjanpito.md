@@ -21,5 +21,5 @@
 |4.12.  |2     |Maksut-näkymän luominen |
 |4.12.  |2     |testit luokille ParticipantRepository ja ParitcipantService |
 |5.12.  |2     |testit luokille PaymentRepository ja PaymentService |
-|6.12.  |3     |dokumentointi |
+|6.12.  |3     |dokumentointi ja GitHub-release |
 | yht.  |47    | |
