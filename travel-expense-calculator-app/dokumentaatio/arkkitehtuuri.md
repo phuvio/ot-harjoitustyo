@@ -72,9 +72,9 @@ Kun sisäänkirjautunut käyttäjä luo uuden matkan, niin sovelluksen kontrolli
  sequenceDiagram
    Actor K as Käyttäjä
    participant U as UI
-   participant T as Travel Service
+   participant T as Travel <br> Service
    participant TR as TravelRepository
-   participant P as Participant Service
+   participant P as Participant <br> Service
    participant PR as ParticipantRepository
    participant J as Jaana
    participant M as Retki
