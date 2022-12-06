@@ -30,10 +30,10 @@ Kun kirjautumisnäkymän syötekenttiin kirjoitetetataan käyttäjätunnus ja sa
    participant S as UserService
    participant R as UserRepository
    K->>U: click "Sisäänkirjautuminen" button
-   U->>S: +login("nimi", "salasana")
-   S->>R: +find_by_username("nimi")
-   R->>S: -user
-   S->>U: -user
+   U->>+S: login("nimi", "salasana")
+   S->>+R: find_by_username("nimi")
+   R->>-S: user
+   S->>-U: user
    U->>U: show_travel_view
 
 ```
@@ -54,11 +54,12 @@ Kun sisäänkirjautunut käyttäjä luo uuden matkan, niin sovelluksen kontrolli
    U->>U: show_create_travel_view
    K->>U: click "Luo uusi matkustaja"
    U->>U: show_create_participant_view
-   U->>P: create_participant("nimi", "", user.username)
-   P->>PR: create(participant)
-   PR->>P: participant
-   P->>U: participant
+   U->>+P: create_participant("nimi", "", user.username)
+   P->>+PR: create(participant)
+   PR->>-P: participant
+   P->>-U: participant
    U->>U: show_create_travel_view
+   K->>U: click "Lisää uusi matka"
    U->>T: create_travel("matkan nimi", user.username)
    T->>TR: create(travel)
    TR->>T: travel
