@@ -23,13 +23,15 @@ Sovelluksen toiminta on testattu Python-versiolla 3.8.
 
 # Asennus
 
-1. Asenna riippuvuudet komennolla:
+1. Siirry kansioon /travel-expense-calculator-app
+
+2. Asenna riippuvuudet komennolla:
 
 ```bash
 poetry install
 ```
 
-2. Käynnistä sovellus komennolla:
+3. Käynnistä sovellus komennolla:
 
 ```bash
 poetry run invoke start
