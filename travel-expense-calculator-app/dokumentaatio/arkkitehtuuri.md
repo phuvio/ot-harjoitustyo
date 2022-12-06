@@ -46,10 +46,10 @@ Kun uuden käyttäjän luomisnäkymässä on syötetty käyttäjätunnus, joka e
 
 ```mermaid
 sequenceDiagram
-  actor Käyttäjä as K
+  actor K as Käyttäjä
   participant UI
-  participant UserService as S
-  participant UserRepository as R
+  participant S as UserService
+  participant R UserRepository
   participant matti
   K->>UI: click "Luo uusi käyttäjä" button
   UI->>+S: create_user("matti", "matti123")
