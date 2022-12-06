@@ -73,9 +73,9 @@ Kun sisäänkirjautunut käyttäjä luo uuden matkan, niin sovelluksen kontrolli
    Actor K as Käyttäjä
    participant U as UI
    participant T as Travel <br> Service
-   participant TR as TravelRepository
+   participant TR as Travel <br> Repository
    participant P as Participant <br> Service
-   participant PR as ParticipantRepository
+   participant PR as Participant <br> Repository
    participant J as Jaana
    participant M as Retki
    K->>U: click "Lisää uusi matka" button
@@ -91,7 +91,7 @@ Kun sisäänkirjautunut käyttäjä luo uuden matkan, niin sovelluksen kontrolli
    K->>U: click "Lisää uusi matka"
    U->>+T: create_travel("Retki", "Petteri")
    T->>+TR: create(travel)
-   TR->>R: Travel("Retki","Petteri")
+   TR->>M: Travel("Retki","Petteri")
    TR->>-T: travel
    T->>-U: travel
    U->>+P: create_participant("Jaana", "Retki", user.username)
