@@ -62,7 +62,7 @@ sequenceDiagram
   UI->>UI: show_travel_view()
 ```
 
-[Tapahtumakäsittelijä](https://github.com/ohjelmistotekniikka-hy/python-todo-app/blob/master/src/ui/create_user_view.py#L18) kutsuu sovelluslogiikan metodia [create_user](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/src/services/user_service.py#L28) antaen parametriksi luotavan käyttäjän tiedot. Sovelluslogiikka selvittää `UserRepository`:n avulla onko käyttäjätunnus olemassa. Jos ei, eli uuden käyttäjän luominen on mahdollista, luo sovelluslogiikka `User`-olion ja tallettaa sen kutsumalla `UserRepository`:n metodia `create`. Tästä seurauksena on se, että käyttöliittymä vaihtaa näkymäksi `ShowTravelView`:n. Luotu käyttäjä kirjataan automaattisesti sisään.
+[Tapahtumakäsittelijä](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/src/ui/ui.py#L65) kutsuu sovelluslogiikan metodia [create_user](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/src/services/user_service.py#L28) antaen parametriksi luotavan käyttäjän tiedot. Sovelluslogiikka selvittää `UserRepository`:n avulla onko käyttäjätunnus olemassa. Jos ei, eli uuden käyttäjän luominen on mahdollista, luo sovelluslogiikka `User`-olion ja tallettaa sen kutsumalla `UserRepository`:n metodia `create`. Tästä seurauksena on se, että käyttöliittymä vaihtaa näkymäksi `ShowTravelView`:n. Luotu käyttäjä kirjataan automaattisesti sisään.
 
 #### Uuden matkan luominen
 
@@ -84,7 +84,7 @@ Kun sisäänkirjautunut käyttäjä luo uuden matkan, niin sovelluksen kontrolli
    U->>U: show_create_participant_view()
    U->>+P: create_participant("Jaana", "*", "Petteri")
    P->>+PR: create(participant)
-   pR->>J: Participant("Jaana","Petteri")
+   PR->>J: Participant("Jaana","Petteri")
    PR->>-P: participant
    P->>-U: participant
    U->>U: show_create_travel_view()
@@ -95,7 +95,7 @@ Kun sisäänkirjautunut käyttäjä luo uuden matkan, niin sovelluksen kontrolli
    TR->>-T: travel
    T->>-U: travel
    U->>+P: create_participant("Jaana", "Retki", user.username)
-   p->>J: Participant("Jaana","Retki","Petteri")
+   P->>J: Participant("Jaana","Retki","Petteri")
    P->>+PR: create(participant)
    PR->>-P: participant
    P->>-U: participant
@@ -103,4 +103,6 @@ Kun sisäänkirjautunut käyttäjä luo uuden matkan, niin sovelluksen kontrolli
 
 ```
 
-`Lisää uusi matka` -painikkeen painamiseen reagoiva tapahtumankäsittelijä vaihtaa näkymäksi `CreateTravelView`. Näkymässä kirjautunut käyttäjä voi antaa uudelle matkalle nimen sekä valita matkan matkustajat. Aluksi matkustajaluettelossa on vain sisäänkirjautunut käyttäjä. Uusia matkustajia voi lisätä matkustajaluetteloon Luo uusi matkustaja -painiketta painamalla. Painikkeen painamiseen reagoiva tapahtumakäsittelijä vaihtaa näkymäksi `CreateParticipantView`. `CreateParticipantView`-näkymässä painamalla `Luo uusi matkustaja` -painiketta sen tapahtumakäsittelijä kutsuu sovelluslogiikan `ParticipantService` metodia `create_participant`. Parametriksi annetaan matkustajan nimi. Sovelluslogiikka selvittää `ParticipantRepository`:n avulla onko nimi jo tallennettu sisäänkirjautuneen käyttäjän nimellä. Jos ei ole, niin uuden matkustajan tallentaminen onnistuu sisäänkirjautuneen käyttäjän nimellä ja matkan nimeksi tallennetaan tähti-merkki. Tämän seurauksena käyttöliittymä vaihtaa näkymäksi takaisin `CreateTravelView`:n, eli uuden matkan luominen -näkymän. Käyttäjä voi tallentaa uuden matkan `Lisää uusi matka` -painiketta painamalla. Painikkeen painamiseen reagoiva tapahtumakäsittelijä kutsuu sovelluslogiikan `TravelService` metodia `create_travel`, jonka parametreina ovat matkan nimi ja matkustajaluettelosta valitut matkustajat. Sovelluslogiikka selvittää `TravelRepository`:n avulla onko matkan nimi jo tallennettu sisäänkirjautuneen käyttäjän nimellä. Jos ei ole, niin uuden matkan tallentaminen onnistuu. Samalla jokainen valittu matkustaja tallennettaan tietokantaan matkan nimen ja sisäänkirjautuneen käyttäjän nimellä. Lopuksi käyttöliittymä vaihtaa näkymäski päänäkymän `ShowTravelView`.
+`Lisää uusi matka` -painikkeen painamiseen reagoiva tapahtumankäsittelijä vaihtaa näkymäksi `CreateTravelView`. Näkymässä kirjautunut käyttäjä voi antaa uudelle matkalle nimen sekä valita matkan matkustajat. Aluksi matkustajaluettelossa on vain sisäänkirjautunut käyttäjä. 
+Uusia matkustajia voi lisätä matkustajaluetteloon Luo uusi matkustaja -painiketta painamalla. Painikkeen painamiseen reagoiva tapahtumakäsittelijä vaihtaa näkymäksi `CreateParticipantView`. `CreateParticipantView`-näkymässä painamalla `Luo uusi matkustaja` -painiketta sen tapahtumakäsittelijä kutsuu sovelluslogiikan `ParticipantService` metodia `create_participant`. Parametriksi annetaan matkustajan nimi. Sovelluslogiikka selvittää `ParticipantRepository`:n avulla onko nimi jo tallennettu sisäänkirjautuneen käyttäjän nimellä. Jos ei ole, niin uuden matkustajan tallentaminen onnistuu sisäänkirjautuneen käyttäjän nimellä ja matkan nimeksi tallennetaan tähti-merkki. Tämän seurauksena käyttöliittymä vaihtaa näkymäksi takaisin `CreateTravelView`:n, eli uuden matkan luominen -näkymän. 
+Käyttäjä voi tallentaa uuden matkan `Lisää uusi matka` -painiketta painamalla. Painikkeen painamiseen reagoiva tapahtumakäsittelijä kutsuu sovelluslogiikan `TravelService` metodia `create_travel`, jonka parametreina ovat matkan nimi ja matkustajaluettelosta valitut matkustajat. Sovelluslogiikka selvittää `TravelRepository`:n avulla onko matkan nimi jo tallennettu sisäänkirjautuneen käyttäjän nimellä. Jos ei ole, niin uuden matkan tallentaminen onnistuu. Samalla jokainen valittu matkustaja tallennettaan tietokantaan matkan nimen ja sisäänkirjautuneen käyttäjän nimellä. Lopuksi käyttöliittymä vaihtaa näkymäski päänäkymän `ShowTravelView`.
