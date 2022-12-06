@@ -82,6 +82,11 @@ Kun sisäänkirjautunut käyttäjä luo uuden matkan, niin sovelluksen kontrolli
    U->>U: show_create_travel_view()
    K->>U: click "Luo uusi matkustaja"
    U->>U: show_create_participant_view()
+   K->>U: click "Luo uusi matkustaja"
+   U->>+P: get_participants_by_guide("Petteri")
+   P->>+PR: find_by_guide("Petteri")
+   PR->>-P: list(Participants)
+   P->>-U: list(Participants)
    U->>+P: create_participant("Jaana", "*", "Petteri")
    P->>+PR: create(participant)
    PR->>J: Participant("Jaana", "*","Petteri")
