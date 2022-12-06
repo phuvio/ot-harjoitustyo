@@ -38,6 +38,8 @@ Kun kirjautumisnäkymän syötekenttiin kirjoitetetataan käyttäjätunnus ja sa
 
 ```
 
+Sisäänkirjautuminen-painikkeen painamiseen reagoiva tapahtumankäsittelijä kutsuu sovelluslogiikan TUserService metodia login antaen parametriksi käyttäjätunnuksen ja salasanan. Sovelluslogiikka selvittää UserRepository:n avulla onko käyttäjätunnus olemassa. Jos on, tarkastetaan täsmääkö salasanat. Jos salasanat täsmäävät, kirjautuminen onnistuu. Tämän seurauksena käyttöliittymä vaihtaa näkymäksi ShowTravelView, eli sovelluksen varsinaisen päänäkymän ja listaa näkymään kirjautuneen käyttäjän tallennetut matkat.
+
 #### Uuden matkan luominen
 
 Kun sisäänkirjautunut käyttäjä luo uuden matkan, niin sovelluksen kontrolli etenee seuraavasti:
@@ -71,3 +73,5 @@ Kun sisäänkirjautunut käyttäjä luo uuden matkan, niin sovelluksen kontrolli
    U->>U: show_travel_view
 
 ```
+
+Lisää uusi matka -painikkeen painamiseen reagoiva tapahtumankäsittelijä vaihtaa näkymäksi CreateTravelView. Näkymässä kirjautunut käyttäjä voi antaa uudelle matkalle nimen sekä valita matkan matkustajat. Aluksi matkustajaluettelossa on vain sisäänkirjautunut käyttäjä. Uusia matkustajia voi lisätä matkustajaluetteloon Luo uusi matkustaja -painiketta painamalla. Painikkeen painamiseen reagoiva tapahtumakäsittelijä vaihtaa näkymäksi CreateParticipantView. CreateParticipantView-näkymässä painamalla Luo uusi matkustaja -painiketta sen tapahtumakäsittelijä kutsuu sovelluslogiikan ParticipantService metodia create_participant. Parametriksi annetaan matkustajan nimi. Sovelluslogiikka selvittää ParticipantRepository:n avulla onko nimi jo tallennettu sisäänkirjautuneen käyttäjän nimellä. Jos ei ole, niin uuden matkustajan tallentaminen onnistuu. Tämän seurauksena käyttöliittymä vaihtaa näkymäksi takaisin CreateTravelView:n, eli uuden matkan luominen -näkymän. Käyttäjä voi tallentaa uuden matkan Lisää uusi matka -painiketta painamalla. Painikkeen painamiseen reagoiva tapahtumakäsittelijä kutsuu sovelluslogiikan TravelService metodia create_travel, jonka parametreina ovat matkan nimi ja matkustajaluettelosta valitut matkustajat. Sovelluslogiikka selvittää TravelRepository:n avulla onko matkan nimi jo tallennettu sisäänkirjautuneen käyttäjän nimellä. Jos ei ole, niin uuden matkan tallentaminen onnistuu. Samalla jokainen valittu matkustaja tallennettaan tietokantaan sisäänkirjautuneen käyttäjän nimellä. Lopuksi käyttöliittymä vaihtaa näkymäski päänäkymän ShowTravelView.
