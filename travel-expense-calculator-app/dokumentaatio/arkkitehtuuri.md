@@ -40,6 +40,30 @@ Kun kirjautumisnäkymän syötekenttiin kirjoitetetataan käyttäjätunnus ja sa
 
 Sisäänkirjautuminen-painikkeen painamiseen reagoiva tapahtumankäsittelijä kutsuu sovelluslogiikan TUserService metodia login antaen parametriksi käyttäjätunnuksen ja salasanan. Sovelluslogiikka selvittää UserRepository:n avulla onko käyttäjätunnus olemassa. Jos on, tarkastetaan täsmääkö salasanat. Jos salasanat täsmäävät, kirjautuminen onnistuu. Tämän seurauksena käyttöliittymä vaihtaa näkymäksi ShowTravelView, eli sovelluksen varsinaisen päänäkymän ja listaa näkymään kirjautuneen käyttäjän tallennetut matkat.
 
+#### Uuden käyttäjän luominen
+
+Kun uuden käyttäjän luomisnäkymässä on syötetty käyttäjätunnus, joka ei ole jo käytössä sekä salasana, jonka jälkeen klikataan Luo uusi käyttäjä -painiketta etenee sovelluksen kontrolli seuraavasti:
+
+```mermaid
+sequenceDiagram
+  actor Käyttäjä as K
+  participant UI
+  participant UserService as S
+  participant UserRepository as R
+  participant matti
+  K->>UI: click "Create user" button
+  UI->>S: create_user("matti", "matti123")
+  S->>R: find_by_username("matti")
+  R-->>S: None
+  S->>matti: User("matti", "matti123")
+  S->>R: create(matti)
+  R-->> S: user
+  S-->>UI: user
+  UI->>UI: show_todos_view()
+```
+
+[Tapahtumakäsittelijä](https://github.com/ohjelmistotekniikka-hy/python-todo-app/blob/master/src/ui/create_user_view.py#L18) kutsuu sovelluslogiikan metodia [create_user](https://github.com/ohjelmistotekniikka-hy/python-todo-app/blob/master/src/services/todo_service.py#L130) antaen parametriksi luotavan käyttäjän tiedot. Sovelluslogiikka selvittää `UserRepository`:n avulla onko käyttäjätunnus olemassa. Jos ei, eli uuden käyttäjän luominen on mahdollista, luo sovelluslogiikka `User`-olion ja tallettaa sen kutsumalla `UserRepository`:n metodia `create`. Tästä seurauksena on se, että käyttöliittymä vaihtaa näkymäksi `ShowTravelView`:n. Luotu käyttäjä kirjataan automaattisesti sisään.
+
 #### Uuden matkan luominen
 
 Kun sisäänkirjautunut käyttäjä luo uuden matkan, niin sovelluksen kontrolli etenee seuraavasti:
