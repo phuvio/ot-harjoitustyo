@@ -51,15 +51,15 @@ sequenceDiagram
   participant UserService as S
   participant UserRepository as R
   participant matti
-  K->>UI: click "Create user" button
-  UI->>S: create_user("matti", "matti123")
-  S->>R: find_by_username("matti")
-  R-->>S: None
+  K->>UI: click "Luo uusi käyttäjä" button
+  UI->>+S: create_user("matti", "matti123")
+  S->>+R: find_by_username("matti")
+  R-->>-S: None
   S->>matti: User("matti", "matti123")
-  S->>R: create(matti)
-  R-->> S: user
-  S-->>UI: user
-  UI->>UI: show_todos_view()
+  S->>+R: create(matti)
+  R-->> -S: user
+  S-->>-UI: user
+  UI->>UI: show_travel_view()
 ```
 
 [Tapahtumakäsittelijä](https://github.com/ohjelmistotekniikka-hy/python-todo-app/blob/master/src/ui/create_user_view.py#L18) kutsuu sovelluslogiikan metodia [create_user](https://github.com/ohjelmistotekniikka-hy/python-todo-app/blob/master/src/services/todo_service.py#L130) antaen parametriksi luotavan käyttäjän tiedot. Sovelluslogiikka selvittää `UserRepository`:n avulla onko käyttäjätunnus olemassa. Jos ei, eli uuden käyttäjän luominen on mahdollista, luo sovelluslogiikka `User`-olion ja tallettaa sen kutsumalla `UserRepository`:n metodia `create`. Tästä seurauksena on se, että käyttöliittymä vaihtaa näkymäksi `ShowTravelView`:n. Luotu käyttäjä kirjataan automaattisesti sisään.
