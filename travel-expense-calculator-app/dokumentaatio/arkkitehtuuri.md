@@ -21,13 +21,15 @@ Ohjelman päätoiminnallisuudet sekvenssikaavioina:
 
 #### Käyttäjän kirjautuminen sisään
 
+Kun kirjautumisnäkymän syötekenttiin kirjoitetetataan käyttäjätunnus ja salasana, jonka jälkeen klikataan painiketta Sisäänkirjautuminen, etenee sovelluksen kontrolli seuraavasti:
+
 ```mermaid
  sequenceDiagram
-   Actor P as Main
-   participant M as Machine
+   Actor K as Käyttäjä
+   participant U as UI
    participant F as FuelTank
    participant E as Engine
-   P->>M: Machine()
+   K->>U: click "Sisäänkirjautuminen" button
    M->>F: FuelTank()
    M->>F: fill(40)
    M->>E: Engine(FuelTank())
