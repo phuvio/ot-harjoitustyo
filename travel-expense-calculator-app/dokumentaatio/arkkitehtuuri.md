@@ -60,10 +60,10 @@ Kun sisäänkirjautunut käyttäjä luo uuden matkan, niin sovelluksen kontrolli
    P->>-U: participant
    U->>U: show_create_travel_view
    K->>U: click "Lisää uusi matka"
-   U->>T: create_travel("Retki", user.username)
-   T->>TR: create(travel)
-   TR->>T: travel
-   T->>U: travel
+   U->>+T: create_travel("Retki", user.username)
+   T->>+TR: create(travel)
+   TR->>-T: travel
+   T->>-U: travel
    U->>+P: create_participant("Jaana", "Retki", user.username)
    P->>+PR: create(participant)
    PR->>-P: participant
