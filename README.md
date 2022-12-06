@@ -23,7 +23,7 @@ Sovelluksen toiminta on testattu Python-versiolla 3.8.
 
 # Asennus
 
-1. Siirry kansioon ´/travel-expense-calculator-app
+1. Siirry kansioon */travel-expense-calculator-app*
 
 2. Asenna riippuvuudet komennolla:
 
