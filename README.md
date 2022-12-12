@@ -20,6 +20,8 @@ Sovelluksen toiminta on testattu Python-versiolla 3.8.
 
 - [Arkkitehtuurikuvaus](./travel-expense-calculator-app/dokumentaatio/arkkitehtuuri.md)
 
+- [Release](https://github.com/phuvio/ot-harjoitustyo/releases/tag/viikko5)
+
 
 # Asennus
 
