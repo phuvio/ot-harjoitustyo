@@ -14,6 +14,16 @@ Ohjelman tietokantaskeema on seuraava:
 
 ![Tietokanta skeema](./kuvat/database-schema.png)
 
+### Hakemistorakenne
+
+Ohjelman rakenne on hajautettu ja eri osat on tallennettu seuraavasti:
+
+- tietomallit on tallennettu kansioon `entities`
+- tietojen tallennuksesta vastaavat luokat on tallennettu kansioon `repositories`
+- sovelluslogiikasta vastaavat luokat on tallennettu kansioon `services`
+- käyttöliittymästä vastaavat luokat on tallennettu kansioon `ui`
+- testit on tallennettu kansioon `tests`
+
 ### Käyttöliittymä
 
 Käyttöliittymä sisältää yhdeksän erillistä näkymää:
