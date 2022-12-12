@@ -29,3 +29,9 @@ Uusi käyttäjä luodaan syöttämällä tiedot syötekenttiin ja painamalla "Lu
 Uuden käyttäjätunnuksen ja salasanan on oltava vähintään kolmen merkin pituisia. Lisäksi käyttäjätunnukseksi ei voi valita jo aikaisemmin tallennettua käyttäjätunnusta.
 
 Mikäli uuden käyttäjätunnuksen luominen onnistuu, siirtyy ohjelma suoraan Matkat-näkymään.
+
+## Matkat-näkymä
+
+Sisäänkirjautumisen jälkeen avautuu Matkat-näkymä. Aluksi näkymä ilmoittaa, että tallennettuja matkoja ei löydy. Kun matkoja on lisätty, näkymä näyttää seuraavalta:
+
+![](./kuvat/Matkat.png)
