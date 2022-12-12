@@ -14,6 +14,45 @@ Ohjelman tietokantaskeema on seuraava:
 
 ![Tietokanta skeema](./kuvat/database-schema.png)
 
+### Käyttöliittymä
+
+Käyttöliittymä sisältää yhdeksän erillistä näkymää:
+
+- Sisäänkirjautuminen
+- Uuden käyttäjän luominen
+- Matkaluettelo
+- Uuden matkan luominen
+- Uuden matkustajan luominen
+- Matkan laskuluettelo
+- Uuden matkan luominen
+- Yksittäisen laskun tiedot
+- Yhteenveto
+
+Jokainen näistä on toteutettu omana luokkanaan. Näkymistä yksi on aina kerrallaan näkyvänä. Näkymien näyttämisestä vastaa UI-luokka. Käyttöliittymä on pyritty eristämään täysin sovelluslogiikasta. Se ainoastaan kutsuu eri Service-luokkien metodeja.
+
+### Sovelluslogiikka
+
+Sovelluksen loogisen tietomallin muodostavat luokat User, Travel, Participant ja [Payment](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/src/entities/participant.py). User-luokka kuvaa käyttäjiä, Travel-luokka matkoja, Participant-luokka matkoille osallistuvia matkustajia ja Payment-luokka maksuja.
+
+### Tietojen pysyväistallennus
+
+Repositories luokat `UserRepository`, TravelRepository, ParticipantRepository ja PaymentRepository huolehtivat tietojen tallettamisesta. Tiedot tallennetaan SQLite-tietokantaan.
+
+Luokat noudattavat Repository -suunnittelumallia ja ne on tarvittaessa mahdollista korvata uusilla toteutuksilla, jos sovelluksen datan talletustapaa päätetään vaihtaa. Sovelluslogiikan testauksessa hyödynnetäänkin tätä siten, että testeissä käytetään tiedostoon ja tietokantaan tallentavien olioiden sijaan keskusmuistiin tallentavia toteutuksia.
+
+Tiedostot
+Sovellus tallettaa käyttäjien ja todojen tiedot erillisiin tiedostoihin.
+
+Sovelluksen juureen sijoitettu konfiguraatiotiedosto .env määrittelee tiedostojen nimet.
+
+Sovellus tallettaa tehtävät CSV-tiedostoon seuraavassa formaatissa:
+
+65eef813-330a-4714-887b-2bda4d744487;opiskele pythonia;1;kalle
+5749b61f-f312-45ef-94a1-71a758feee2b;kirjoita dokumentaatio;0;matti
+Eli tehtävän id, sisältö, tehtystatus (0 = ei tehty, 1 = on tehty) ja käyttäjän käyttäjätunnus. Kenttien arvot erotellaan puolipisteellä (;).
+
+Käyttäjät tallennetaan SQLite-tietokannan tauluun users, joka alustetaan initialize_database.py-tiedostossa.
+
 ### Päätoiminnallisuudet
 
 Ohjelman päätoiminnallisuudet sekvenssikaavioina:
