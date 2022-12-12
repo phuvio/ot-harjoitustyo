@@ -54,6 +54,14 @@ class CreateParticipantView:
         if len(name) == 0:
             self._show_error("Nimi on pakollinen")
             return
+        
+        if name.isspace():
+            self._show_error("Pelkkä välilyönti ei kelpaa")
+            return
+        
+        if len(name) < 3:
+            self._show_error("Nimen pitää olla vähintää 3 merkkiä")
+            return
 
         participants_by_guide = participant_service.get_participants_by_guide(
             guide)
@@ -103,7 +111,7 @@ class CreateParticipantView:
 
         user_label = ttk.Label(
             master=self._frame,
-            text=f"Kayttäjä {self._guide} kirjautuneena"
+            text=f"{self._guide} kirjautuneena"
         )
         user_label.grid(row=0, column=1, padx=5, pady=5, sticky=constants.W)
 

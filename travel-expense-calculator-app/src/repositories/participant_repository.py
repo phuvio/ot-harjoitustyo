@@ -75,15 +75,15 @@ class ParticipantRepository:
         return list(map(get_participant_by_row, rows))
 
     def find_by_name_and_guide(self, name, guide):
-        """Palauttaa matkustajat matkanjohtajan käyttäjätunnuksen ja valitun matkan perusteella
+        """Palauttaa matkustajan matkanjohtajan käyttäjätunnuksen ja valitun matkan perusteella
 
         Args:
             guide: Matkanjohtajan käyttäjätunnus, johon liittyvät matkustajat palautetaan
             travel: Matka, johon liittyvät matkustajat palautetaan
 
         Returns:
-            Palauttaa listan Participant-olioita, jos käyttäjätunnuksen omaavalla matkanjohtajalla
-            on tallennettuja matkustajia kyseiselle matkalle
+            Palauttaa Participant-olion, jos käyttäjätunnuksen omaavalla matkanjohtajalla
+            on tallennettuja matkustaja kyseiselle matkalle
         """
 
         cursor = self._connection.cursor()
@@ -115,8 +115,7 @@ class ParticipantRepository:
         return participant
 
     def delete_all(self):
-        """Poistaa kaikki matkustajat
-        """
+        """Poistaa kaikki matkustajat"""
 
         cursor = self._connection.cursor()
 

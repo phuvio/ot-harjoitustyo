@@ -11,7 +11,6 @@ class TravelService:
            vastaavan palvelun
 
         Args:
-            travel: Valittu matka Travel-olion muodossa
             travel_repository: Olio, jolla on TravelRepository-luokkaa vastaavat metodit
         """
 
@@ -64,6 +63,21 @@ class TravelService:
         """
 
         return self._travel
+
+    def get_travel_by_name_and_guide(self, name, guide):
+        """Palauttaa matkan nimeen ja matkanjohtajaan liittyvät matkat
+
+        Args:
+            name: Merkkijono, joka kuvastaa matkan nimeä
+            guide: Merkkijono, joka kuvastaa matkan matkanjohtajaa
+
+        Returns:
+            Matkan nimeen ja matkanjohtajaan liittyvä matka Travel-olion muodossa
+        """
+
+        travel = self._travel_repository.find_by_name_and_guide(name, guide)
+
+        return travel
 
 
 travel_service = TravelService()

@@ -3,7 +3,7 @@ from database_connection import get_database_connection
 
 
 def get_travel_by_row(row):
-    return Travel(row["name"], row["guide"]) if row else None
+    return Travel(row["name"], row["guide"], row["travel_id"]) if row else None
 
 
 class TravelRepository:
@@ -32,7 +32,7 @@ class TravelRepository:
 
         rows = cursor.fetchall()
 
-        return [Travel(row["name"], row["guide"]) for row in rows]
+        return [Travel(row["name"], row["guide"], row["travel_id"]) for row in rows]
 
     def find_by_name(self, name):
         """Palauttaa matkat matkan nimen perusteella
@@ -71,7 +71,28 @@ class TravelRepository:
 
         rows = cursor.fetchall()
 
-        return [Travel(row["name"], row["guide"]) for row in rows]
+        return [Travel(row["name"], row["guide"], row["travel_id"]) for row in rows]
+
+    def find_by_name_and_guide(self, name, guide):
+        """Palauttaa matkan matkan nimen ja matkanjohtajan perusteella
+
+        Args:
+            name: Matkan nimi, johon liittyvä matka palautetaan
+            guide: Matkan matkanjohtajan nimi, johon liittyvä matka palautetaan
+
+        Returns:
+            Palauttaa Travel-olion, jos matkan ja matkanjohtajan nimellä omaava
+            matka on tallennettu
+        """
+
+        cursor = self._connection.cursor()
+
+        cursor.execute(
+            "SELECT * FROM travels WHERE name = ? AND guide = ?", (name, guide,))
+
+        row = cursor.fetchone()
+
+        return get_travel_by_row(row)
 
     def create(self, travel):
         """Tallentaa matkan tietokantaan

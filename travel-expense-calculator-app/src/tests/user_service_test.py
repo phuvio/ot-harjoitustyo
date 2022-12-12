@@ -8,34 +8,13 @@ from services.user_service import (
 from repositories.user_repository import user_repository
 
 
-class FakeUserRepository:
-    def __init__(self, users=None):
-        self.users = users or []
-
-    def find_all(self):
-        return self.users
-
-    def find_by_username(self, username):
-        matching_users = filter(
-            lambda user: user.username == username,
-            self.users
-        )
-
-        matching_users_list = list(matching_users)
-
-        return matching_users_list[0] if len(matching_users_list) > 0 else None
-
-    def create(self, user):
-        self.users.append(user)
-
-        return user
-
-
 class TestUserService(unittest.TestCase):
     def setUp(self):
         self.user_service = UserService(
-            FakeUserRepository(),
+            user_repository
         )
+
+        user_repository.delete_all()
 
         self._user_jaana = User('Jaana', '1234')
         self._user_mari = User('Mari', 'abc')
@@ -98,3 +77,6 @@ class TestUserService(unittest.TestCase):
         current_user = self.user_service.get_current_user()
 
         self.assertIsNone(current_user)
+
+    def tearDown(self):
+        user_repository.delete_all()

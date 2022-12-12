@@ -66,14 +66,24 @@ class CreateTravelView:
             self._show_error("Valitse matkustajat")
             return
 
+        travel_by_name_and_guide = travel_service.get_travel_by_name_and_guide(
+            name, guide)
+
+        if travel_by_name_and_guide:
+            self._show_error(f"Nimi {name} on jo olemassa")
+            return
+
         try:
             travel_service.create_travel(name, guide)
+            saved_travel = travel_service.get_travel_by_name_and_guide(
+                name, guide)
             for participant in self._participants:
                 participant_service.create_participant(
-                    participant, name, guide)
-            self._handle_create_travel()
+                    participant, saved_travel.travel_id, guide)
         except:
-            self._show_error(f"Nimi {name} on jo olemassa")
+            self._show_error("Matkan tallentaminen epäonnistui")
+
+        self._handle_create_travel()
 
     def _show_error(self, message):
         """Näyttää virheilmoituksen"""
@@ -137,7 +147,7 @@ class CreateTravelView:
 
         user_label = ttk.Label(
             master=self._frame,
-            text=f"Käyttäjä {self._guide} kirjautuneena"
+            text=f"{self._guide} kirjautuneena"
         )
         user_label.grid(row=0, column=1, padx=5, pady=5, sticky=constants.W)
 

@@ -9,6 +9,7 @@ class TestTravelRepository(unittest.TestCase):
 
         self._travel_a = Travel("Eka matka", "Maisa")
         self._travel_b = Travel("Toka matka", "Topi")
+        self._travel_c = Travel("Eka matka", "Jaana")
 
     def test_create_one_travel(self):
         travel_repository.create(self._travel_a)
@@ -35,6 +36,7 @@ class TestTravelRepository(unittest.TestCase):
     def test_find_travels_by_guide(self):
         travel_repository.create(self._travel_a)
         travel_repository.create(self._travel_b)
+        travel_repository.create(self._travel_c)
 
         travel = travel_repository.find_by_guide(self._travel_a.guide)
 
@@ -46,3 +48,16 @@ class TestTravelRepository(unittest.TestCase):
 
         self.assertEqual(len(travel), 2)
         self.assertEqual(travel[1].name, "Kolmas matka")
+
+    def test_find_by_name_and_guide(self):
+        travel_repository.create(self._travel_a)
+        travel_repository.create(self._travel_b)
+        travel_repository.create(self._travel_c)
+
+        travel = travel_repository.find_by_name_and_guide(
+            self._travel_a.name, self._travel_a.guide)
+
+        self.assertEqual(travel.guide, self._travel_a.guide)
+
+    def tearDown(self):
+        travel_repository.delete_all()

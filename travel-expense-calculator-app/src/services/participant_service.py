@@ -40,6 +40,9 @@ class ParticipantService:
     def get_participants_by_guide(self, guide):
         """Palauttaa matkanjohtajaan liittyvät matkustajat
 
+        Args:
+            guide: Merkkijono, joka kuvastaa matkustajan matkanjohtajaa
+
         Returns:
             Lista kirjautuneeseen käyttäjään liittyvistä matkustajista Participant-olioiden muodossa
         """
@@ -50,6 +53,10 @@ class ParticipantService:
 
     def get_participants_by_guide_and_travel(self, guide, travel):
         """Palauttaa matkanjohtajaan ja valittuun matkaan liittyvät matkustajat
+
+        Args:
+            guide: Merkkijono, joka kuvastaa matkustajan matkanjohtajaa
+            travel: Mekkijono, joka kuvastaa matkustajan matkaa
 
         Returns:
             Lista kirjautuneeseen käyttäjään ja valittuun matkaan liittyvistä matkustajista
@@ -64,6 +71,10 @@ class ParticipantService:
     def get_participants_by_name_and_guide(self, name, guide):
         """Palauttaa matkanjohtajaan ja valittuun matkaan liittyvät matkustajat
 
+        Args:
+            name: Merkkijono, joka kuvastaa matkustajan nimeä
+            guide: Merkkijono, joka kuvastaa matkustajan matkanjohtajaa
+
         Returns:
             Lista kirjautuneeseen käyttäjään ja valittuun matkaan liittyvistä matkustajista
             Participant-olioiden muodossa
@@ -72,7 +83,7 @@ class ParticipantService:
         travels = self._participant_repository.find_by_name_and_guide(
             name, guide)
 
-        return list(travels)
+        return travels
 
     def get_all_participants(self):
         """Palauttaa kaikki matkustajat

@@ -4,59 +4,17 @@ from services.participant_service import ParticipantService
 from repositories.participant_repository import participant_repository
 
 
-class FakeParticipantRepository:
-    def __init__(self, participants=None):
-        self.participants = participants or []
-
-    def find_all(self):
-        return self.participants
-
-    def find_by_guide(self, guide):
-        matching_participants = filter(
-            lambda participant: participant.guide == guide,
-            self.participants
-        )
-
-        matching_participants_list = list(matching_participants)
-
-        return matching_participants_list
-
-    def find_by_guide_and_travel(self, guide, travel):
-        matching_participants = filter(
-            lambda participant: participant.guide == guide and participant.travel == travel,
-            self.participants
-        )
-
-        matching_participants_list = list(matching_participants)
-
-        return matching_participants_list
-
-    def find_by_name_and_guide(self, name, guide):
-        matching_participants = filter(
-            lambda participant: participant.name == name and participant.guide == guide,
-            self.participants
-        )
-
-        matching_participants_list = list(matching_participants)
-
-        return matching_participants_list
-
-    def create(self, participant):
-        self.participants.append(participant)
-
-        return participant
-
-
 class TestParticipantService(unittest.TestCase):
     def setUp(self):
         self.participant_service = ParticipantService(
-            FakeParticipantRepository()
+            participant_repository
         )
+        participant_repository.delete_all()
 
-        self._participant_mikko = Patricipant("Mikko", "Eka matka", "Jaana")
-        self._participant_pekka = Patricipant("Pekka", "Eka matka", "Mari")
-        self._participant_mari = Patricipant("Mari", "Eka matka", "Jaana")
-        self._participant_ville = Patricipant("Ville", "Toka matka", "Jaana")
+        self._participant_mikko = Patricipant("Mikko", 3, "Jaana")
+        self._participant_pekka = Patricipant("Pekka", 2, "Mari")
+        self._participant_mari = Patricipant("Mari", 3, "Jaana")
+        self._participant_ville = Patricipant("Ville", 4, "Jaana")
 
     def test_create_participant(self):
         name = self._participant_mikko.name
@@ -110,10 +68,12 @@ class TestParticipantService(unittest.TestCase):
         self.participant_service.create_participant(
             self._participant_mikko.name, self._participant_mikko.travel, self._participant_mikko.guide)
         self.participant_service.create_participant(
-            "Mikko", "Eka matka", "Mari")
+            "Mikko", 5, "Mari")
 
         participants = self.participant_service.get_participants_by_name_and_guide(
             self._participant_mikko.name, self._participant_mikko.guide)
 
-        self.assertEqual(len(participants), 1)
-        self.assertEqual(participants[0].name, self._participant_mikko.name)
+        self.assertEqual(participants.name, self._participant_mikko.name)
+
+    def tearDown(self):
+        participant_repository.delete_all()

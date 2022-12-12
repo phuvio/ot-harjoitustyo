@@ -7,10 +7,10 @@ class TestParticipantRepository(unittest.TestCase):
     def setUp(self):
         participant_repository.delete_all()
 
-        self._participant_mikko = Patricipant("Mikko", "Eka matka", "Jaana")
-        self._participant_pekka = Patricipant("Pekka", "Eka matka", "Mari")
-        self._participant_mari = Patricipant("Mari", "Eka matka", "Jaana")
-        self._participant_ville = Patricipant("Ville", "Toka matka", "Jaana")
+        self._participant_mikko = Patricipant("Mikko", 1, "Jaana")
+        self._participant_pekka = Patricipant("Pekka", 2, "Mari")
+        self._participant_mari = Patricipant("Mari", 1, "Jaana")
+        self._participant_ville = Patricipant("Ville", 3, "Jaana")
 
     def test_create_one_participant(self):
         participant_repository.create(self._participant_mikko)
@@ -37,7 +37,7 @@ class TestParticipantRepository(unittest.TestCase):
         participant_repository.create(self._participant_mari)
         participant_repository.create(self._participant_ville)
         participants = participant_repository.find_by_guide_and_travel(
-            "Jaana", "Eka matka")
+            "Jaana", 1)
 
         self.assertEqual(len(participants), 2)
         self.assertEqual(participants[0].name, self._participant_mikko.name)
@@ -49,9 +49,12 @@ class TestParticipantRepository(unittest.TestCase):
         participant_repository.create(self._participant_mari)
         participant_repository.create(self._participant_ville)
         participant_repository.create(
-            Patricipant("Mikko", "Eka matka", "Mari"))
+            Patricipant("Mikko", 2, "Mari"))
         participants = participant_repository.find_by_name_and_guide(
             "Mikko", "Jaana")
 
         self.assertEqual(participants.name, self._participant_mikko.name)
         self.assertEqual(participants.guide, self._participant_mikko.guide)
+
+    def tearDown(self):
+        participant_repository.delete_all()

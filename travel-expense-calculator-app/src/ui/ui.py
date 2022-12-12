@@ -5,6 +5,8 @@ from ui.create_participant_view import CreateParticipantView
 from ui.create_travel_view import CreateTravelView
 from ui.payments_view import PaymentView
 from ui.create_payment_view import CreatePaymentView
+from ui.single_payment_view import SinglePaymentView
+from ui.summary_view import SummaryView
 
 
 class UI:
@@ -15,8 +17,6 @@ class UI:
 
         Args:
             root: Tkinter-elemnetti, jonka sisään käyttöliittymä alustetaan
-            travel_service: travel_service-luokan importaaminen
-            user_service: user_service-luokan importaaminen
         """
 
         self._root = root
@@ -113,7 +113,9 @@ class UI:
             self._root,
             self._show_login_view,
             self._show_create_payment_view,
-            self._show_travel_view
+            self._show_travel_view,
+            self._show_single_payment_view,
+            self._show_summary_view
         )
 
         self._current_view.pack()
@@ -128,6 +130,32 @@ class UI:
             self._show_payments_view,
             self._show_payments_view,
             self._show_login_view
+        )
+
+        self._current_view.pack()
+
+    def _show_single_payment_view(self):
+        """Näyttää Yksittäinen maksu -näkymän"""
+
+        self._hide_current_view()
+
+        self._current_view = SinglePaymentView(
+            self._root,
+            self._show_login_view,
+            self._show_payments_view
+        )
+
+        self._current_view.pack()
+
+    def _show_summary_view(self):
+        """Näyttää matkan maksuista Yhteenveto-näkymän"""
+
+        self._hide_current_view()
+
+        self._current_view = SummaryView(
+            self._root,
+            self._show_login_view,
+            self._show_payments_view
         )
 
         self._current_view.pack()

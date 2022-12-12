@@ -40,8 +40,9 @@ def create_tables(connection):
 
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS travels (
-            name TEXT PRIMARY KEY,
-            guide TEXT
+            name TEXT,
+            guide TEXT,
+            travel_id INTEGER PRIMARY KEY
         )
     """)
 
@@ -57,20 +58,20 @@ def create_tables(connection):
             name TEXT,
             travel TEXT,
             guide TEXT,
-            participant_id TEXT PRIMARY KEY
+            participant_id INTEGER PRIMARY KEY
         )
     """)
 
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS payments (
-            travel TEXT,
+            travel INTEGER,
             receipt_name TEXT,
             date TEXT,
             amount TEXT,
             action TEXT,
             payer TEXT,
             information TEXT,
-            payment_id TEXT PRIMARY KEY
+            payment_id INTEGER PRIMARY KEY
         )
     """)
 
@@ -84,7 +85,6 @@ def initialize_database():
 
     connection = get_database_connection()
 
-    # drop_tables(connection)
     create_tables(connection)
 
 

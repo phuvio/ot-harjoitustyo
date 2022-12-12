@@ -31,3 +31,6 @@ class TestUserRepository(unittest.TestCase):
         users = user_repository.find_by_username('Jaana')
 
         self.assertEqual(users.username, self._user_jaana.username)
+
+    def tearDown(self):
+        user_repository.delete_all()

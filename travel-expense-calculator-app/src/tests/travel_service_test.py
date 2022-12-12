@@ -5,40 +5,12 @@ from services.travel_service import TravelService
 from repositories.travel_repository import travel_repository
 
 
-class FakeTravelRepository:
-    def __init__(self, travels=None):
-        self.travels = travels or []
-
-    def find_all(self):
-        return self.travels
-
-    def find_by_name(self, name):
-        user_travels = filter(
-            lambda travel: travel.name == name,
-            self.travels
-        )
-
-        return list(user_travels)
-
-    def find_by_guide(self, guide):
-        user_travels = filter(
-            lambda travel: travel.guide == guide,
-            self.travels
-        )
-
-        return list(user_travels)
-
-    def create(self, travel):
-        self.travels.append(travel)
-
-        return travel
-
-
 class TestTravelService(unittest.TestCase):
     def setUp(self):
         self.travel_service = TravelService(
-            FakeTravelRepository(),
+            travel_repository
         )
+        travel_repository.delete_all()
 
         self._travel_eka = Travel('Eka matka', 'Jaana')
         self._travel_toka = Travel('Toka matka', 'Mari')
@@ -90,3 +62,19 @@ class TestTravelService(unittest.TestCase):
         travel = self.travel_service.get_users_travels(self._travel_toka.guide)
 
         self.assertEqual(len(travel), 0)
+
+    def test_travels_by_name_and_guide(self):
+        self.travel_service.create_travel(
+            self._travel_eka.name, self._travel_eka.guide)
+        self.travel_service.create_travel(
+            self._travel_toka.name, self._travel_toka.guide)
+
+        travel = self.travel_service.get_travel_by_name_and_guide(
+            self._travel_eka.name,
+            self._travel_eka.guide
+        )
+
+        self.assertEqual(travel.name, self._travel_eka.name)
+
+    def tearDown(self):
+        travel_repository.delete_all()

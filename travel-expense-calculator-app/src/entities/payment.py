@@ -1,3 +1,6 @@
+import uuid
+
+
 class Payment:
     """Luokka, joka kuvaa yksittäistä maksutapahtumaa
 
@@ -24,7 +27,7 @@ class Payment:
             action: Merkkijono, joka kuvaa onko maksutapahtuma ostos vai maksu
             payer: Merkkijono, joka kuvaa maksutapahtuman maksajaa
             information: Merkkijono, joka kuvaa maksutapahtuman lisätietoja
-            payment_id: Merkkijono, joka kuvaa maksutapahtuman id:tä
+            payment_id: Kokonaisluku, joka kuvaa maksutapahtuman id:tä
         """
 
         self.travel = travel
@@ -34,4 +37,4 @@ class Payment:
         self.action = action
         self.payer = payer
         self.information = information
-        self.payment_id = payment_id
+        self.payment_id = payment_id or str(uuid.uuid4())

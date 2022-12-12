@@ -8,7 +8,7 @@ class Patricipant:
         name: Merkkijono, joka kuvaa matkustajan nimeä
         travel: Merkkijono, joka kuvaa matkaa, jolle matkustaja osallistuu
         guide: Merkkijono, joka kuvaa matkan, jolle matkustaja osallistuu, matkanjohtajaa
-        participant_id: Merkkijono, joka kuvaa matkan id:tä
+        participant_id: Kokonaisluku, joka kuvaa matkan id:tä
     """
 
     def __init__(self, name, travel, guide, participant_id=None):
@@ -20,7 +20,7 @@ class Patricipant:
             guide: Merkkijono, joka kuvaa matkan, jolle matkustaja osallistuu, matkanjohtajaa
             participant_id:
                 Vapaaehtoinen, oletusarvoltaan None
-                Merkkijono, joka kuvaa matkan id:tä
+                Kokonaisluku, joka kuvaa matkan id:tä
         """
 
         self.name = name

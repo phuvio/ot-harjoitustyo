@@ -19,7 +19,6 @@ class UserService:
            vastaavan palvelun
 
         Args:
-            user: Kirjautunut käyttäjä User-olion muodossa
             user_repository: Olio, jolla on UserResopitory-luokkaa vastaavat metodit
         """
         self._user = None

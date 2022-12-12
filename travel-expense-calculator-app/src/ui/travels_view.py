@@ -54,14 +54,14 @@ class TravelListView:
         name_button.grid(row=1, column=0, padx=5, pady=5, sticky=constants.W)
 
         participants = participant_service.get_participants_by_guide_and_travel(
-            travel.guide, travel.name)
+            travel.guide, travel.travel_id)
         participants_names = []
         for participant in participants:
             participants_names.append(participant.name)
 
         participants_label = ttk.Label(
             master=item_frame, text=participants_names)
-        participants_label.grid(row=1, columnspan=3,
+        participants_label.grid(row=1, columnspan=2,
                                 padx=5, pady=5, sticky=constants.E)
 
         item_frame.grid_columnconfigure(0, weight=1, minsize=50)
@@ -140,6 +140,8 @@ class TravelView:
         self._frame.destroy()
 
     def _initialize_travel_list(self):
+        """Alustaa matkaluettelon"""
+        
         if self._travel_list_view:
             self._travel_list_view.destroy()
 
@@ -163,13 +165,13 @@ class TravelView:
         headline_label.grid(row=0, column=0, padx=5, pady=5)
 
         user_label = ttk.Label(
-            master=self._frame, text=f"Käyttäjä {self._user.username} kirjautuneena")
-        user_label.grid(row=0, column=1, padx=5, pady=5, sticky=constants.W)
+            master=self._frame, text=f"{self._user.username} kirjautuneena")
+        user_label.grid(row=0, column=2, padx=5, pady=5, sticky=constants.E)
 
         logout_button = ttk.Button(
             master=self._frame, text="Uloskirjautuminen", command=self._handle_logout)
-        logout_button.grid(row=0, column=2, padx=5,
-                           pady=5, sticky=constants.EW)
+        logout_button.grid(row=0, column=3, padx=5,
+                           pady=5, sticky=constants.E)
 
     def _initialize_title(self):
         """Alustaa Matkat-näkymän väliotsikot"""
@@ -184,7 +186,7 @@ class TravelView:
             master=self._frame,
             text="Matkustajat"
         )
-        title2_label.grid(row=1, column=1, padx=5, pady=5, sticky=constants.E)
+        title2_label.grid(row=1, column=2, padx=5, pady=5, sticky=constants.E)
 
     def _initialize_footer(self):
         """Alustaa Matkat-näkymän footerin"""

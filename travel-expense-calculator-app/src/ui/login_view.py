@@ -39,6 +39,8 @@ class LoginView:
         self._frame.destroy()
 
     def _login_handler(self):
+        """Sisäänkirjautumisen käsittelijä"""
+        
         username = self._username_entry.get()
         password = self._password_entry.get()
 
@@ -49,13 +51,19 @@ class LoginView:
             self._show_error("Väärä käyttäjätunnus tai salasana")
 
     def _show_error(self, message):
+        """Näyttää virheilmoituksen"""
+
         self._error_variable.set(message)
         self._error_label.grid(row=1, column=0)
 
     def _hide_error(self):
+        """Poistaa virheilmoituksen näkyvistä"""
+
         self._error_label.grid_remove()
 
     def _initialize_username_field(self):
+        """Alustaa kentän käyttäjätunnus"""
+
         username_label = ttk.Label(master=self._frame, text="Käyttäjätunnus")
 
         self._username_entry = ttk.Entry(master=self._frame)
@@ -64,6 +72,7 @@ class LoginView:
         self._username_entry.grid(padx=5, pady=5, sticky=constants.EW)
 
     def _initialize_password_field(self):
+        """Alustaa kentän salasana"""
         password_label = ttk.Label(master=self._frame, text=("Salasana"))
 
         self._password_entry = ttk.Entry(master=self._frame)
@@ -72,13 +81,34 @@ class LoginView:
         self._password_entry.grid(padx=5, pady=5, sticky=constants.EW)
 
     def _initialize_title(self):
+        """Alustaa näkymän otsikon"""
+
         headline_label = ttk.Label(
             master=self._frame,
             text="Kirjaudu sisään"
         )
         headline_label.grid(row=0, column=0, padx=5, pady=5)
 
+    def _initialize_footer(self):
+        """Alustaaa näkymän footerin"""
+
+        login_button = ttk.Button(
+            master=self._frame,
+            text="Sisäänkirjaus",
+            command=self._login_handler
+        )
+
+        create_user_button = ttk.Button(
+            master=self._frame,
+            text="Lisää käyttäjä",
+            command=self._handle_show_create_user_view
+        )
+
+        login_button.grid(padx=5, pady=5, sticky=constants.EW)
+        create_user_button.grid(padx=5, pady=5, sticky=constants.EW)
+
     def _initialize(self):
+        """Alustaa Sisäänkirjautuminen-näkymän"""
         self._frame = ttk.Frame(master=self._root)
 
         self._error_variable = StringVar(self._frame)
@@ -94,22 +124,8 @@ class LoginView:
         self._initialize_title()
         self._initialize_username_field()
         self._initialize_password_field()
-
-        login_button = ttk.Button(
-            master=self._frame,
-            text="Sisäänkirjaus",
-            command=self._login_handler
-        )
-
-        create_user_button = ttk.Button(
-            master=self._frame,
-            text="Lisää käyttäjä",
-            command=self._handle_show_create_user_view
-        )
+        self._initialize_footer()
 
         self._frame.grid_columnconfigure(0, weight=1, minsize=400)
-
-        login_button.grid(padx=5, pady=5, sticky=constants.EW)
-        create_user_button.grid(padx=5, pady=5, sticky=constants.EW)
 
         self._hide_error()

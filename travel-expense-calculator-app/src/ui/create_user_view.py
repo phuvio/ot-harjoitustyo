@@ -49,6 +49,18 @@ class CreateUserView:
             self._show_error("Käyttäjätunnus ja salasanat ovat pakollisia")
             return
 
+        if username.isspace() or password.isspace():
+            self._show_error("Pelkkä välilyönti ei kelpaa")
+            return
+
+        if len(username) < 3:
+            self._show_error("Käyttäjätunnuksen oltava vähintää 3 merkkiä")
+            return
+
+        if len(password) < 3:
+            self._show_error("Salasanan oltava vähintää 3 merkkiä")
+            return
+
         try:
             user_service.create_user(username, password)
             self._handle_create_user()
