@@ -32,6 +32,12 @@ Mikäli uuden käyttäjätunnuksen luominen onnistuu, siirtyy ohjelma suoraan Ma
 
 ## Matkat-näkymä
 
-Sisäänkirjautumisen jälkeen avautuu Matkat-näkymä. Aluksi näkymä ilmoittaa, että tallennettuja matkoja ei löydy. Kun matkoja on lisätty, näkymä näyttää seuraavalta:
+Sisäänkirjautumisen jälkeen avautuu Matkat-näkymä. Aluksi näkymä ilmoittaa, että tallennettuja matkoja ei löydy. Kun matkoja on lisätty, näkymä näyttää luettelona jokaisen matkan nimen ja matkustajat:
 
 ![](./kuvat/Matkat.png)
+
+"Lisää uusi matka" -painiketta painamalla voi siirtyä luomaan uusia matkoja. Painamalla matkan nimeä voi siirtyä näkymään, joka näyttää kyseisen matkan tiedot.
+
+## Uuden matkan luominen
+
+Työn alla
