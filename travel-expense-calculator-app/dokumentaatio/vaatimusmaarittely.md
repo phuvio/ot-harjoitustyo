@@ -12,7 +12,7 @@ Sovellusta voi käyttää useampi rekisteröitynyt käyttäjä. Kaikilla käytt�
 
 Sovellus koostuu yhdeksästä eri näkymästä.
 
-![Käyttöliittymäluonnos](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/dokumentaatio/kuvat/kayttoliittymaluonnos.jpg)
+![Käyttöliittymäluonnos](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/dokumentaatio/kuvat/kayttoliittymaluonnos.png)
 
 Sovellus aukeaa *kirjautumisnäkymään*, josta on mahdollista siirytä *uuden käyttäjän luomisnäkymään* tai onnistuneen kirjautumisen yhteydessä *matkat-näkymään*. *Matkat-näkymässä* voi siirtyä *uuden matkan luomisnäkymään* tai valita jonkun luettelossa olevista matkoista. *Uuden matkan luomisnäkymässä* voi luoda uuden matkan ja valita sille osallistujat sekä matkanjohtajan tai siirtyä *luo uusi matkustaja -näkymään*. *Luo uusi matkustaja -näkymässä* voi luoda uuden matkustajan. *Matkat-näkymästä* voi siirtyä *maksut-näkymään* valitsemalla jonkun *matkat-näkymässä* näkyvistä matkoista. *Maksut-näkymässä* näkyvät matkan maksut ja kuka maksun on maksanut. Matkalle voi lisätä uusia maksuja *luo uusi maksu -näkymässä*. *Luo uusi maksu -näkymässä* luodaan uusi maksu ja syötetään maksun tiedot. *Maksut-näkymästä* voi valita yksittäisen maksun, jolloin "maksun tiedot -näkymässä" näkyvät laskun kaikki tiedot. Lisäksi *maksut-näkymästä* pääsee myös *yhteenveto-näkymän*, jossa on yhteenveto jokaisen matkalaisen suorittamista maksuista, laskelma jokaiselle matkalaiselle kohdistuneista ostoksista sekä jokaisen matkalaisen plus-miinus-tilasto.
 
