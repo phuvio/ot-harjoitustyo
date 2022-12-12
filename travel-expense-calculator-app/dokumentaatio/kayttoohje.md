@@ -14,4 +14,4 @@ Työn alla
 
 Sovellus käynnistyy sisäänkirjautumisnäkymään:
 
-![](./kuvat/Kirjaudu sisaan.png)
+![](./kuvat/Kirjaudu%20sisaan.png)
