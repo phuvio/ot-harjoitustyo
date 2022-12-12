@@ -24,7 +24,7 @@ Sisäänkirjautumisnäkymästä on mahdollista siirtyä Luo uusi käyttäjä -n�
 
 Uusi käyttäjä luodaan syöttämällä tiedot syötekenttiin ja painamalla "Luo uusi käyttäjä" -painiketta:
 
-![](./kuvat/Luo%20uusi&20kayttaja.png)
+![](./kuvat/Luo%20uusi%20kayttaja.png)
 
 Uuden käyttäjätunnuksen ja salasanan on oltava vähintään kolmen merkin pituisia. Lisäksi käyttäjätunnukseksi ei voi valita jo aikaisemmin tallennettua käyttäjätunnusta.
 
