@@ -12,6 +12,8 @@ Sovelluksen toiminta on testattu Python-versiolla 3.8.
 
 ## Dokumentaatio
 
+- [Käyttöohje](./travel-expense-calculator-app/dokumentaatio/kayttoohje.md)
+
 - [Vaatimusmäärittely](./travel-expense-calculator-app/dokumentaatio/vaatimusmaarittely.md)
 
 - [Työaikakirjanpito](./travel-expense-calculator-app/dokumentaatio/tuntikirjanpito.md)
