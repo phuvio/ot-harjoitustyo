@@ -41,3 +41,38 @@ Sisäänkirjautumisen jälkeen avautuu Matkat-näkymä. Aluksi näkymä ilmoitta
 ## Uuden matkan luominen
 
 Työn alla
+
+![](./kuvat/Luo%20uusi%20matka.png)
+
+## Matkan laskut
+
+Työn alla
+
+![](./kuvat/Laskut.png)
+
+## Uuden laskun luominen
+
+Työn alla
+
+![](./kuvat/Luo%20uusi%20maksu.png)
+
+![](./kuvat/Kalenteri.png)
+
+## Uuden matkustajan luominen
+
+Työn alla
+
+![](./kuvat/Luo%20uusi%20matkustaja.png)
+
+
+## Laskun tiedot
+
+Työn alla
+
+![](./kuvat/Laskun%20tiedot.png)
+
+## Yhteenveto
+
+Työn alla
+
+![](./kuvat/Yhteenveto.png)
