@@ -21,7 +21,7 @@ Sovellus aukeaa *kirjautumisnäkymään*, josta on mahdollista siirytä *uuden k
 ### Ennen kirjautumista
 
 - Käyttäjä voi luoda järjestelmään käyttäjätunnuksen - tehty
-  - Käyttäjätunnuksen täytyy olla uniikki ja pituudeltaan vähintään 3 merkkiä
+  - Käyttäjätunnuksen täytyy olla uniikki ja pituudeltaan vähintään 3 merkkiä - tehty
 - Käyttäjä voi kirjautua järjestelmään - tehty
   - Kirjautuminen onnistuu syötettäessä olemassaoleva käyttäjätunnus ja salasana kirjaudu sisään -näkymässä - tehty
 
@@ -43,34 +43,34 @@ Sovellus aukeaa *kirjautumisnäkymään*, josta on mahdollista siirytä *uuden k
 ### *Maksut-näkymä*
 
 - Käyttäjä näkee matkalle tallennetut maksut - tehty
-  - Jokaisen maksun kohdalla näkyvät
+  - Jokaisen maksun kohdalla näkyvät - tehty
     - Maksun nimi
     - Maksun summa
     - Maksajan nimi
 - Käyttäjä voi hän lisätä uuden maksun matkalle siirtymällä *luo uusi maksu -näkymään* - tehty
-- Valitsemalla maksun, siirtyy *maksun tiedot -näkymään*, jossa näkyvät kyseisen maksun tiedot
-- Käyttäjä voi siirtyä *yhteenveto-näkymään*, jossa on matkan maksujen yhteenveto
+- Valitsemalla maksun, siirtyy *maksun tiedot -näkymään*, jossa näkyvät kyseisen maksun tiedot - tehty
+- Käyttäjä voi siirtyä *yhteenveto-näkymään*, jossa on matkan maksujen yhteenveto - tehty
 
 ### *Uusi lasku -näkymä*
 
-- Käyttäjä kirjaa 
-  - Uuden maksun nimen, jonka pitää olla uniikki
-  - Maksun summan
-  - Maksun maksajan
-  - Miten maksu jakautuu matkan osallistujien kesken
-  - Maksun päivämäärän 
-  - Maksun lisätiedot
+- Käyttäjä kirjaa - tehty
+  - Uuden maksun nimen, jonka pitää olla uniikki - tehty
+  - Maksun summan - tehty
+  - Maksun maksajan - tehty
+  - Miten maksu jakautuu matkan osallistujien kesken - tehty
+  - Maksun päivämäärän - tehty
+  - Maksun lisätiedot - tehty
 
 ### *Maksun tiedot -näkymä*
 
-- Näyttää valitun maksun tiedot 
+- Näyttää valitun maksun tiedot  - tehty
 
 ### *Yhteenveto-näkymä*
 
-- *Yhteenveto-näkymässä* on laskelma, jossa näkyvät
-  - Jokaisen matkalaisetn maksamien laskujen summa
-  - Jokaiseen matkalaiseen kohdistuvien ostosten summa
-  - Jokaisen matkalaisen plus-miinus-tilasto, jossa näkyy onko matkalainen maksanut enemmän tai vähemmän kuin oman osuutensa
+- *Yhteenveto-näkymässä* on laskelma, jossa näkyvät - tehty
+  - Jokaisen matkalaisen maksamien laskujen summa - tehty
+  - Jokaiseen matkalaiseen kohdistuvien ostosten summa - tehty
+  - Jokaisen matkalaisen plus-miinus-tilasto, jossa näkyy onko matkalainen maksanut enemmän tai vähemmän kuin oman osuutensa - tehty
 
 ## Jatkokehitysideoita
 
@@ -83,6 +83,6 @@ Perusversion jälkeen on mahdollista lisätä, mikäli aikaa jää, seuraavia to
 - Maksun tietojen muokkaaminen
 - Maksun poistaminen
 - Matkustajan poistaminen
-- Yhteenvedon lähettäminen pdf-tiedostona annettuun sähköpostiin
+- Yhteenvedon lähettäminen annettuun sähköpostiin
 - Pääkäyttäjäroolin lisääminen
   - Pääkäyttäjä voi poistaa käyttäjiä
