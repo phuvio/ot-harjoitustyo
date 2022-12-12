@@ -44,13 +44,19 @@ Työn alla
 
 ![](./kuvat/Luo%20uusi%20matka.png)
 
-## Matkan laskut
+## Uuden matkustajan luominen
+
+Työn alla
+
+![](./kuvat/Luo%20uusi%20matkustaja.png)
+
+## Matkan maksut
 
 Työn alla
 
 ![](./kuvat/Laskut.png)
 
-## Uuden laskun luominen
+## Uuden maksun luominen
 
 Työn alla
 
@@ -58,14 +64,7 @@ Työn alla
 
 ![](./kuvat/Kalenteri.png)
 
-## Uuden matkustajan luominen
-
-Työn alla
-
-![](./kuvat/Luo%20uusi%20matkustaja.png)
-
-
-## Laskun tiedot
+## Maksun tiedot
 
 Työn alla
 
