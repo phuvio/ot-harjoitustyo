@@ -6,7 +6,7 @@ Ryhmässä on mukava matkustaa. Välillä tulee kuitenkin kiistaa siitä, kuka o
 
 ## Käyttäjät
 
-Sovellusta voi käyttää useampi rekisteröitynyt käyttäjä. Kaikilla käyttäjillä on kirjautuessa sama rooli. Mutta jokaisella matkalla voi olla vain yksi *matkanjohtaja*, jolla on oikeus kirjata kuitteja ja laskuja sovellukseen.
+Sovellusta voi käyttää useampi rekisteröitynyt käyttäjä. Jokainen käyttäjä näkee vain omat tallentamansa matkat, matkustajat ja maksut. Kirjautunut käyttäjä toimii *matkanjohtajana*, joka voi lisätä uusia matkoja, matkustajia ja maksuja.
 
 ## Käyttöliittymäluonnos
 
@@ -14,7 +14,7 @@ Sovellus koostuu yhdeksästä eri näkymästä.
 
 ![Käyttöliittymäluonnos](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/dokumentaatio/kuvat/k%C3%A4ytt%C3%B6liittym%C3%A4luonnos.png)
 
-Sovellus aukeaa *kirjautumisnäkymään*, josta on mahdollista siirytä *uuden käyttäjän luomisnäkymään* tai onnistuneen kirjautumisen yhteydessä *matkat-näkymään*. *Matkat-näkymässä* voi siirtyä *uuden matkan luomisnäkymään* tai valita jonkun luettelossa olevista matkoista. *Uuden matkan luomisnäkymässä* voi luoda uuden matkan ja valita sille osallistujat sekä matkanjohtajan tai siirtyä *luo uusi matkustaja -näkymään*. *Luo uusi matkustaja -näkymässä* voi luoda uuden matkustajan. *Matkat-näkymästä* voi siirtyä *maksut-näkymään* valitsemalla jonkun *matkat-näkymässä* näkyvistä matkoista. *Maksut-näkymässä* näkyvät matkan maksut ja kuka maksun on maksanut. Matkalle voi lisätä uusia maksuja *luo uusi maksu -näkymässä*. *Luo uusi maksu -näkymässä* luodaan uusi maksu ja syötetään maksun tiedot. *Maksut-näkymästä* voi valita yksittäisen maksun, jolloin "maksun tiedot -näkymässä" näkyvät laskun kaikki tiedot. Lisäksi *maksut-näkymästä* pääsee myös *yhteenveto-näkymän*, jossa on yhteenveto jokaisen matkalaisen suorittamista maksuista, laskelma jokaiselle matkalaiselle kohdistuneista ostoksista sekä jokaisen matkalaisen plus-miinus-tilasto.
+Sovellus aukeaa *kirjautumisnäkymään*, josta on mahdollista siirytä *uuden käyttäjän luomisnäkymään* tai onnistuneen kirjautumisen yhteydessä *matkat-näkymään*. *Matkat-näkymässä* voi siirtyä *uuden matkan luomisnäkymään* tai valita jonkun luettelossa olevista matkoista. *Uuden matkan luomisnäkymässä* voi luoda uuden matkan ja valita sille osallistujat sekä matkanjohtajan tai siirtyä *luo uusi matkustaja -näkymään*. *Luo uusi matkustaja -näkymässä* voi luoda uuden matkustajan. *Matkat-näkymästä* voi siirtyä *maksut-näkymään* valitsemalla jonkun *matkat-näkymässä* näkyvistä matkoista. *Maksut-näkymässä* näkyvät matkan maksut ja kuka maksun on maksanut. Matkalle voi lisätä uusia maksuja *luo uusi maksu -näkymässä*. *Luo uusi maksu -näkymässä* luodaan uusi maksu ja syötetään maksun tiedot. *Maksut-näkymästä* voi valita yksittäisen maksun, jolloin *maksun tiedot -näkymässä* näkyvät laskun kaikki tiedot. Lisäksi *maksut-näkymästä* pääsee myös *yhteenveto-näkymän*, jossa on yhteenveto jokaisen matkalaisen suorittamista maksuista, laskelma jokaiselle matkalaiselle kohdistuneista ostoksista sekä jokaisen matkalaisen plus-miinus-tilasto.
 
 ## Perusversion tarjoama toiminnallisuus
 
