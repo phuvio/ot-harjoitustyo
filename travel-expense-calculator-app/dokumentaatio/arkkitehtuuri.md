@@ -163,6 +163,7 @@ Käyttäjä voi tallentaa uuden matkan `Lisää uusi matka` -painiketta painamal
    Actor K as Käyttäjä
    participant U as UI
    participant T as Travel <br> Service
+   participant TR as Travel <br> Repository
    participant P as Payment <br> Service
    participant PR as Payment <br> Repository
    K->>U: click "Lisää uusi maksu" button
