@@ -78,7 +78,7 @@ Uuden maksun luominen onnistuu syöttämällä vaaditut tiedot syötekenttiin. M
 
 ![](./kuvat/Luo%20uusi%20maksu.png)
 
-Maksun päivämäärän voi valita klikkaamalla syötekenttää, jolloin aukeaa kalenteri. Kalenterista voi valita halutun päivämäärän klikkaamalla kyseistä päivää. Päivämäärän syötekentässä on automaattisesti nykyinen päivämäärä.
+Maksun päivämäärän voi valita klikkaamalla syötekenttää, jolloin aukeaa kalenteri. Kalenterista voi valita halutun päivämäärän klikkaamalla kyseistä päivää. Päivämäärän syötekenttä ehdottaa automaattisesti nykyistä päivämäärä.
 
 ![](./kuvat/Kalenteri.png)
 
