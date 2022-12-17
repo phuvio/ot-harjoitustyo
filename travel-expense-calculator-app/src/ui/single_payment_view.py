@@ -178,4 +178,3 @@ class SinglePaymentView:
         self._initialize_header()
         self._initialize_receipt_info()
         self._initialize_footer()
-        

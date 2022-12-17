@@ -141,7 +141,7 @@ class TravelView:
 
     def _initialize_travel_list(self):
         """Alustaa matkaluettelon"""
-        
+
         if self._travel_list_view:
             self._travel_list_view.destroy()
 

@@ -54,11 +54,11 @@ class CreateParticipantView:
         if len(name) == 0:
             self._show_error("Nimi on pakollinen")
             return
-        
+
         if name.isspace():
             self._show_error("Pelkkä välilyönti ei kelpaa")
             return
-        
+
         if len(name) < 3:
             self._show_error("Nimen pitää olla vähintää 3 merkkiä")
             return

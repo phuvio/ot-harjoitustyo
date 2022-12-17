@@ -40,7 +40,7 @@ class LoginView:
 
     def _login_handler(self):
         """Sisäänkirjautumisen käsittelijä"""
-        
+
         username = self._username_entry.get()
         password = self._password_entry.get()
 
