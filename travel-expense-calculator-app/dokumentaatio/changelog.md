@@ -41,3 +41,21 @@
 - Käyttäjä voi luoda uuden matkan
 - Käyttäjä voi luoda uuden matkustajan
 - Käyttäjä voi valita luodun matkan Matka-näkymässä, jolloin näkymäksi muuttuu Maksut-näkymä
+
+## Viikko 6
+
+- Lisätty Luo uusi maksu -näkymä
+- Lisätty Yksittäinen maksu -näkymä
+- Lisätty Yhteenveto-näkymä
+- Lisätty uuden maksun luomiseen liittyvät virheilmoitukset
+- Lisätty DateEntry-kirjasto
+- Laajennettu testejä vastaamaan uutta koodia
+- Käyttäjä voi luoda uuden maksun
+- Käyttäjä näkee yksittäisen maksun tiedot
+- Käyttäjä näkee matkan maksujen yhteenvedon
+
+## Viikko 7
+
+- Ohjelman viimeistely
+- Käyttöohje
+- Dokumentaation viimeistely

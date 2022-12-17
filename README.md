@@ -12,6 +12,8 @@ Sovelluksen toiminta on testattu Python-versiolla 3.8.
 
 ## Dokumentaatio
 
+- [Käyttöohje](./travel-expense-calculator-app/dokumentaatio/kayttoohje.md)
+
 - [Vaatimusmäärittely](./travel-expense-calculator-app/dokumentaatio/vaatimusmaarittely.md)
 
 - [Työaikakirjanpito](./travel-expense-calculator-app/dokumentaatio/tuntikirjanpito.md)
@@ -19,6 +21,8 @@ Sovelluksen toiminta on testattu Python-versiolla 3.8.
 - [ChangeLog](./travel-expense-calculator-app/dokumentaatio/changelog.md)
 
 - [Arkkitehtuurikuvaus](./travel-expense-calculator-app/dokumentaatio/arkkitehtuuri.md)
+
+- [Release](https://github.com/phuvio/ot-harjoitustyo/releases/tag/viikko5)
 
 
 # Asennus
