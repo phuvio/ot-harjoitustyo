@@ -31,3 +31,4 @@
 |12.12. |3     |dokumentointi |
 | yht.  |62    | |
 |13.12. |1     |käyttöohje |
+|17.12. |2     |testien viimeistely ja testausdokumentti |
