@@ -54,3 +54,8 @@
 - Käyttäjä näkee yksittäisen maksun tiedot
 - Käyttäjä näkee matkan maksujen yhteenvedon
 
+## Viikko 7
+
+- Ohjelman viimeistely
+- Käyttöohje
+- Dokumentaation viimeistely
