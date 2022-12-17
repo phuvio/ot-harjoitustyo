@@ -1,10 +1,14 @@
 # Käyttöohje
 
-Työn alla
+Lataa projektin viimeisimmän [releasen]([https://github.com/ohjelmistotekniikka-hy/python-todo-app/releases](https://github.com/phuvio/ot-harjoitustyo/releases) lähdekoodi valitsemalla _Assets_-osion alta _Source code_.
 
 ## Konfigurointi
 
-Työn alla
+Tallennukseen käytettävien tiedostojen nimiä voi halutessaan konfiguroida käynnistyshakemistossa _.env_-tiedostossa. Tiedostot luodaan automaattisesti _data_-hakemistoon, jos niitä ei siellä vielä ole. Tiedoston muoto on seuraava:
+
+```
+DATABASE_FILENAME=travelexpenses.db
+```
 
 ## Ohjelman käynnistäminen
 
