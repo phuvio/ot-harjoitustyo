@@ -74,7 +74,7 @@ Sovellus aukeaa *kirjautumisnäkymään*, josta on mahdollista siirytä *uuden k
 
 ## Jatkokehitysideoita
 
-Perusversion jälkeen on mahdollista lisätä, mikäli aikaa jää, seuraavia toiminnallisuuksia:
+Ohjelmaan on mahdollista lisätä seuraavia toiminnallisuuksia:
 
 - Lisätä yhteenveto-näkymään laskelma miten matkan päätyttyä maksut tasataan 
 - Kieliversiot
