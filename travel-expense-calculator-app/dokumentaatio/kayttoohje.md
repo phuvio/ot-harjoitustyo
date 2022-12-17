@@ -12,7 +12,19 @@ DATABASE_FILENAME=travelexpenses.db
 
 ## Ohjelman käynnistäminen
 
-Työn alla
+1. Siirry kansioon: */travel-expense-calculator-app*
+
+2. Asenna riippuvuudet komennolla:
+
+```bash
+poetry install
+```
+
+3. Käynnistä sovellus komennolla:
+
+```bash
+poetry run invoke start
+```
 
 ## Kirjautuminen
 
