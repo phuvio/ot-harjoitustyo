@@ -118,6 +118,8 @@ Kun sisäänkirjautunut käyttäjä luo uuden matkan, niin sovelluksen kontrolli
    participant U as UI
    participant T as Travel <br> Service
    participant TR as Travel <br> Repository
+   participant S as User <br> Service
+   participant SR as User <br> Repository
    participant P as Participant <br> Service
    participant PR as Participant <br> Repository
    participant J as Jaana
@@ -125,6 +127,10 @@ Kun sisäänkirjautunut käyttäjä luo uuden matkan, niin sovelluksen kontrolli
    participant H as Petteri
    K->>U: click "Lisää uusi matka" button
    U->>U: show_create_travel_view()
+   U->>+S: get_current_user()
+   S->>-U: user
+   U->>+T: get_current_travel()
+   T->>-U: travel
    U->>+P: get_participants_by_guide("Petteri")
    P->>+PR: find_by_guide("Petteri")
    PR->>-P: list(Participants)
