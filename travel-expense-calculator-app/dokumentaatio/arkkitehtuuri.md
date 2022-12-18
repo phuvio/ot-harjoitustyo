@@ -175,8 +175,10 @@ Käyttäjä voi tallentaa uuden matkan `Lisää uusi matka` -painiketta painamal
    participant U as UI
    participant T as Travel <br> Service
    participant TR as Travel <br> Repository
-   participant P as Payment <br> Service
-   participant PR as Payment <br> Repository
+   participant P as Participant <br> Service
+   participant PR as Participant <br> Repository
+   participant M as Payment <br> Service
+   participant MR as Payment <br> Repository
    K->>U: click "Lisää uusi maksu" button
    U->>U: show_create_payment_view()
    U->>+P: get_participants_by_guide_and_travel("Petteri", "Retki")
@@ -185,5 +187,9 @@ Käyttäjä voi tallentaa uuden matkan `Lisää uusi matka` -painiketta painamal
    P->>-U: list(Participants)
    Note over U: Tarkista, että matkan nimi on yli 3 merkkiä
    Note over U: Tarkista, että matkan nimi ei ole tyhjä
-   Note over U: Tarkista, että summa, maksaja ja matkustajat on valittu
+   Note over U: Tarkista, että summa, päivämäärä, maksaja ja matkustajat on valittu
+   U->>+M: create_payment(2, "Kuitti", "16.12.2022", "30", "maksu", "Petteri")
+   M->>+MR: create_payment(2, "Kuitti", "16.12.2022", "30", "maksu", "Petteri")
+   MR->>-M: payment
+   M->>-U: payment
 ```
