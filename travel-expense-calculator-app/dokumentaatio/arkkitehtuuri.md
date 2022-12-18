@@ -173,8 +173,6 @@ Käyttäjä voi tallentaa uuden matkan `Lisää uusi matka` -painiketta painamal
  sequenceDiagram
    Actor K as Käyttäjä
    participant U as UI
-   participant T as Travel <br> Service
-   participant TR as Travel <br> Repository
    participant P as Participant <br> Service
    participant PR as Participant <br> Repository
    participant M as Payment <br> Service
