@@ -72,6 +72,7 @@ Kun kirjautumisnäkymän syötekenttiin kirjoitetetataan käyttäjätunnus ja sa
    participant S as UserService
    participant R as UserRepository
    K->>U: click "Sisäänkirjautuminen" button
+   Note right of U: Tarkasta, että käyttäjätunnus ja salasana vähintään 3 merkkiä
    U->>+S: login("Petteri", "salasana")
    S->>+R: find_by_username("Petteri")
    R->>-S: user
