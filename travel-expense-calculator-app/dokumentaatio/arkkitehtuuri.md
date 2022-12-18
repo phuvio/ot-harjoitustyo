@@ -133,9 +133,9 @@ Kun sisäänkirjautunut käyttäjä luo uuden matkan, niin sovelluksen kontrolli
    K->>U: click "Luo uusi matkustaja"
    Note over U: Tarkista, että matkustajan nimi on yli 3 merkkiä
    Note over U: Tarkista, että matkustajan nimi ei ole tyhjä
-   U->>+P: create_participant("Jaana", "*", "Petteri")
+   U->>+P: create_participant("Jaana","*","Petteri")
    P->>+PR: create(participant)
-   PR->>J: Participant("Jaana", "*","Petteri")
+   PR->>J: Participant("Jaana","*","Petteri")
    PR->>-P: participant
    P->>-U: participant
    U->>U: show_create_travel_view()
@@ -147,14 +147,18 @@ Kun sisäänkirjautunut käyttäjä luo uuden matkan, niin sovelluksen kontrolli
    Note over U: Tarkista, että matkan nimi on yli 3 merkkiä
    Note over U: Tarkista, että matkan nimi ei ole tyhjä
    Note over U: Tarkista, että summa, maksaja ja matkustajat on valittu
-   U->>+T: create_travel("Retki", "Petteri")
+   U->>+T: create_travel("Retki","Petteri")
    T->>+TR: create(travel)
    TR->>M: Travel("Retki","Petteri")
    TR->>-T: travel
    T->>-U: travel
-   U->>+P: create_participant("Jaana", "Retki", "Petteri")
+   U->>+T: get_travel_by_name_and_guide("Retki","Petteri")
+   T->>+TR: find_by_name_and_guide("Retki","Petteri")
+   TR->>-T: travel
+   T->>-U: travel
+   U->>+P: create_participant("Jaana",travel.id,"Petteri")
    P->>+PR: create(participant)
-   PR->>J: Participant("Jaana","Retki","Petteri")
+   PR->>J: Participant("Jaana",travel.id,"Petteri")
    PR->>-P: participant
    P->>-U: participant
    U->>U: show_travel_view()
