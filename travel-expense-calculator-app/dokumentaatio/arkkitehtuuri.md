@@ -94,7 +94,8 @@ sequenceDiagram
   participant R as UserRepository
   participant matti
   K->>UI: click "Luo uusi käyttäjä" button
-  Note over UI: Tarkasta, että käyttäjätunnus ja salasana vähintään 3 merkkiä
+  Note over UI: Tarkista, että käyttäjätunnus ja salasana vähintään 3 merkkiä
+  Note over UI: Tarkista, että käyttäjätunnus ja salasana eivät ole tyhjiä
   UI->>+S: create_user("matti", "matti123")
   S->>+R: find_by_username("matti")
   R-->>-S: None
@@ -123,20 +124,29 @@ Kun sisäänkirjautunut käyttäjä luo uuden matkan, niin sovelluksen kontrolli
    participant M as Retki
    K->>U: click "Lisää uusi matka" button
    U->>U: show_create_travel_view()
-   K->>U: click "Luo uusi matkustaja"
-   U->>U: show_create_participant_view()
-   K->>U: click "Luo uusi matkustaja"
    U->>+P: get_participants_by_guide("Petteri")
    P->>+PR: find_by_guide("Petteri")
    PR->>-P: list(Participants)
    P->>-U: list(Participants)
+   K->>U: click "Luo uusi matkustaja"
+   U->>U: show_create_participant_view()
+   K->>U: click "Luo uusi matkustaja"
+   Note over U: Tarkista, että matkustajan nimi on yli 3 merkkiä
+   Note over U: Tarkista, että matkustajan nimi ei ole tyhjä
    U->>+P: create_participant("Jaana", "*", "Petteri")
    P->>+PR: create(participant)
    PR->>J: Participant("Jaana", "*","Petteri")
    PR->>-P: participant
    P->>-U: participant
    U->>U: show_create_travel_view()
+   U->>+P: get_participants_by_guide("Petteri")
+   P->>+PR: find_by_guide("Petteri")
+   PR->>-P: list(Participants)
+   P->>-U: list(Participants)
    K->>U: click "Lisää uusi matka"
+   Note over U: Tarkista, että matkan nimi on yli 3 merkkiä
+   Note over U: Tarkista, että matkan nimi ei ole tyhjä
+   Note over U: Tarkista, että summa, maksaja ja matkustajat on valittu
    U->>+T: create_travel("Retki", "Petteri")
    T->>+TR: create(travel)
    TR->>M: Travel("Retki","Petteri")
