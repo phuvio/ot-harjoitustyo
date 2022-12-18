@@ -179,4 +179,11 @@ Käyttäjä voi tallentaa uuden matkan `Lisää uusi matka` -painiketta painamal
    participant PR as Payment <br> Repository
    K->>U: click "Lisää uusi maksu" button
    U->>U: show_create_payment_view()
+   U->>+P: get_participants_by_guide_and_travel("Petteri", "Retki")
+   P->>+PR: find_by_guide_and_travel("Petteri", "Retki")
+   PR->>-P: list(Participants)
+   P->>-U: list(Participants)
+   Note over U: Tarkista, että matkan nimi on yli 3 merkkiä
+   Note over U: Tarkista, että matkan nimi ei ole tyhjä
+   Note over U: Tarkista, että summa, maksaja ja matkustajat on valittu
 ```
