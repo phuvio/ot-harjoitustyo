@@ -192,4 +192,13 @@ Käyttäjä voi tallentaa uuden matkan `Lisää uusi matka` -painiketta painamal
    M->>+MR: create_payment(2, "Kuitti", "16.12.2022", "30", "maksu", "Petteri")
    MR->>-M: payment
    M->>-U: payment
+   U->>+M: create_payment(2, "Kuitti", "16.12.2022", "15", "ostos", "Jaana")
+   M->>+MR: create_payment(2, "Kuitti", "16.12.2022", "15", "ostos", "Jaana")
+   MR->>-M: payment
+   M->>-U: payment
+   U->>+M: create_payment(2, "Kuitti", "16.12.2022", "15", "ostos", "Petteri")
+   M->>+MR: create_payment(2, "Kuitti", "16.12.2022", "15", "ostos", "Petteri")
+   MR->>-M: payment
+   M->>-U: payment
+   U->>U: show_payments_view()
 ```
