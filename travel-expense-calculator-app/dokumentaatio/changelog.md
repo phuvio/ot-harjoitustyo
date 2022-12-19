@@ -58,4 +58,5 @@
 
 - Ohjelman viimeistely
 - Käyttöohje
+- Testausdokumentti
 - Dokumentaation viimeistely
