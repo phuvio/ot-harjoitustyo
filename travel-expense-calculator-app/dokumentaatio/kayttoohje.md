@@ -4,7 +4,7 @@ Lataa projektin viimeisimmän [releasen](https://github.com/phuvio/ot-harjoitust
 
 ## Konfigurointi
 
-Tallennukseen käytettävien tiedostojen nimiä voi halutessaan konfiguroida käynnistyshakemistossa _.env_-tiedostossa. Tiedostot luodaan automaattisesti _data_-hakemistoon, jos niitä ei siellä vielä ole. Tiedoston muoto on seuraava:
+Tallennukseen käytettävän tiedoston nimeä voi halutessaan konfiguroida käynnistyshakemistossa _.env_-tiedostossa. Tiedosto luodaan automaattisesti _data_-hakemistoon, jos sitä ei siellä vielä ole. Tiedoston muoto on seuraava:
 
 ```
 DATABASE_FILENAME=travelexpenses.db
