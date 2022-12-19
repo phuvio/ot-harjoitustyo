@@ -237,4 +237,4 @@ Käyttäjä pystyy siirtymään näkymästä toiseen painamalla kyseisen näkym�
 
 ## Ohjelman rakenteeseen jääneet heikkoudet
 
-Tietokantaoperaatioita on mahdollista yksinkertaistaa lisäämällä tietokantaskeemaan liitostauluja esim. taulujen `Travel` ja `Payment` väliin sekä taulujen `Participant` ja `Payment`. Lisäksi graafisen käyttöliittymän koodia on mahdollista optimoida esim. luomalla yhteisiä komponentteja. Silloin koodin toisteisuus vähenisi.
+Tietokantaoperaatioita on mahdollista yksinkertaistaa lisäämällä tietokantaskeemaan liitostauluja taulujen `Travel` ja `Payment` väliin sekä taulujen `Travel` ja `Participant` väliin. Lisäksi graafisen käyttöliittymän koodia on mahdollista optimoida esim. luomalla yhteisiä komponentteja. Silloin koodin toisteisuus vähenisi.
