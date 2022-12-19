@@ -1,6 +1,6 @@
 # Arkkitehtuurikuvaus
 
-### Rakenne
+## Rakenne
 
 Ohjelman rakenne noudattelee kolmitasoista kerrosarkkitehtuuria, ja koodin pakkausrakenne on seuraava:
 
@@ -8,13 +8,13 @@ Ohjelman rakenne noudattelee kolmitasoista kerrosarkkitehtuuria, ja koodin pakka
 
 Pakkaus ui sisältää käyttöliittymästä, services sovelluslogiikasta ja repositories tietojen pysyväistallennuksesta vastaavan koodin. Pakkaus entities sisältää luokkia, jotka kuvastavat sovelluksen käyttämiä tietokohteita.
 
-### Tietokantaskeema
+## Tietokantaskeema
 
 Ohjelman tietokantaskeema on seuraava:
 
 ![Tietokanta skeema](./kuvat/database-schema.png)
 
-### Hakemistorakenne
+## Hakemistorakenne
 
 Ohjelman rakenne on hajautettu ja eri osat on tallennettu seuraavasti:
 
@@ -24,7 +24,7 @@ Ohjelman rakenne on hajautettu ja eri osat on tallennettu seuraavasti:
 - käyttöliittymästä vastaavat luokat on tallennettu kansioon `ui`
 - testit on tallennettu kansioon `tests`
 
-### Käyttöliittymä
+## Käyttöliittymä
 
 Käyttöliittymä sisältää yhdeksän erillistä näkymää:
 
@@ -40,28 +40,28 @@ Käyttöliittymä sisältää yhdeksän erillistä näkymää:
 
 Jokainen näistä on toteutettu omana luokkanaan. Näkymistä yksi on aina kerrallaan näkyvänä. Näkymien näyttämisestä vastaa UI-luokka. Käyttöliittymä on pyritty eristämään täysin sovelluslogiikasta. Se ainoastaan kutsuu eri Service-luokkien metodeja.
 
-### Sovelluslogiikka
+## Sovelluslogiikka
 
 Sovelluksen loogisen tietomallin muodostavat luokat [User](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/src/entities/user.py), [Travel](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/src/entities/travel.py), [Participant](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/src/entities/participant.py) ja [Payment](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/src/entities/payment.py). User-luokka kuvaa käyttäjiä, Travel-luokka matkoja, Participant-luokka matkoille osallistuvia matkustajia ja Payment-luokka maksuja.
 
-### Tietojen pysyväistallennus
+## Tietojen pysyväistallennus
 
 Repositories luokat `UserRepository`, `TravelRepository`, `ParticipantRepository` ja `PaymentRepository` huolehtivat tietojen tallettamisesta. Tiedot tallennetaan SQLite-tietokantaan.
 
 Luokat noudattavat Repository-suunnittelumallia ja ne on tarvittaessa mahdollista korvata uusilla toteutuksilla, jos sovelluksen datan talletustapaa päätetään vaihtaa. 
 
-#### Tiedostot
+### Tiedostot
 
 Sovellus tallettaa SQLite-tietokannan kansioon `data`.
 
 Sovelluksen juureen sijoitettu konfiguraatiotiedosto .env määrittelee tiedoston nimen, joka on nyt `travelexpenses.db`. Käyttäjät tallennetaan tietokannan tauluun `users`, matkat tauluun `travels`, matkustajat tauluun `participants` ja maksut tauluun `payments`. Taulut alustetaan tiedostossa `initialize_database.py`.
 
-### Päätoiminnallisuudet
+## Päätoiminnallisuudet
 
 Ohjelman päätoiminnallisuudet sekvenssikaavioina:
 
 
-#### Käyttäjän kirjautuminen sisään
+### Käyttäjän kirjautuminen sisään
 
 Kun kirjautumisnäkymän syötekenttiin kirjoitetetataan käyttäjätunnus ja salasana, jonka jälkeen klikataan painiketta Sisäänkirjautuminen, etenee sovelluksen kontrolli seuraavasti:
 
@@ -82,7 +82,7 @@ Kun kirjautumisnäkymän syötekenttiin kirjoitetetataan käyttäjätunnus ja sa
 
 Sisäänkirjautuminen-painikkeen painamiseen reagoiva tapahtumankäsittelijä kutsuu sovelluslogiikan `UserService` metodia `login` antaen parametriksi käyttäjätunnuksen ja salasanan. Sovelluslogiikka selvittää `UserRepository`:n avulla onko käyttäjätunnus olemassa. Jos on, tarkastetaan täsmääkö salasanat. Jos salasanat täsmäävät, kirjautuminen onnistuu. Tämän seurauksena käyttöliittymä vaihtaa näkymäksi `ShowTravelView`, eli sovelluksen varsinaisen päänäkymän ja listaa näkymään kirjautuneen käyttäjän tallennetut matkat.
 
-#### Uuden käyttäjän luominen
+### Uuden käyttäjän luominen
 
 Kun uuden käyttäjän luomisnäkymässä on syötetty käyttäjätunnus, joka ei ole jo käytössä sekä salasana, jonka jälkeen klikataan Luo uusi käyttäjä -painiketta etenee sovelluksen kontrolli seuraavasti:
 
@@ -108,7 +108,7 @@ sequenceDiagram
 
 [Tapahtumakäsittelijä](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/src/ui/ui.py#L65) kutsuu sovelluslogiikan metodia [create_user](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/src/services/user_service.py#L28) antaen parametriksi luotavan käyttäjän tiedot. Sovelluslogiikka selvittää `UserRepository`:n avulla onko käyttäjätunnus olemassa. Jos ei, eli uuden käyttäjän luominen on mahdollista, luo sovelluslogiikka `User`-olion ja tallettaa sen kutsumalla `UserRepository`:n metodia `create`. Tästä seurauksena on se, että käyttöliittymä vaihtaa näkymäksi `ShowTravelView`:n. Luotu käyttäjä kirjataan automaattisesti sisään.
 
-#### Uuden matkan luominen
+### Uuden matkan luominen
 
 Kun sisäänkirjautunut käyttäjä luo uuden matkan, niin sovelluksen kontrolli etenee seuraavasti:
 
@@ -183,7 +183,7 @@ Uusia matkustajia voi lisätä matkustajaluetteloon Luo uusi matkustaja -painike
 
 Käyttäjä voi tallentaa uuden matkan `Lisää uusi matka` -painiketta painamalla. Painikkeen painamiseen reagoiva tapahtumakäsittelijä kutsuu sovelluslogiikan `TravelService` metodia `create_travel`, jonka parametreina ovat matkan id ja sisäänkirjautuneen käyttäjän `username`. Sovelluslogiikka yrittää tallentaa matkaa kutsumalla `TravelRepository`:n metodia `create`, jonka parametriksi annetaan sovelluslogiikan luoma `Travel`-olio. Mikäli tallennus onnistuu eli tietokannasta ei löyty sisäänkirjautuneen käyttäjän nimellä tallennettua saman nimistä matkaa, niin sen jälkeen sovelluslogiikka tallentaa jokaisen matkustajaluettelosta valitun matkustajat tietokantaan matkan id:n ja sisäänkirjautuneen käyttäjän nimellä kutsumalla `ParticipantService`:n metodia `create_participant`. Lopuksi sovelluslogiikka vaihtaa näkymäksi päänäkymän `ShowTravelView`.
 
-#### Uuden maksun luominen
+### Uuden maksun luominen
 
 Kun sisäänkirjautunut käyttäjä luo uuden maksun, niin sovelluksen kontrolli etenee seuraavasti:
 
@@ -230,3 +230,11 @@ Kun sisäänkirjautunut käyttäjä luo uuden maksun, niin sovelluksen kontrolli
 `Lisää uusi maksu` -painikkeen painamiseen reagoiva tapahtumankäsittelijä vaihtaa näkymäksi `CreatePaymentView`. Näkymässä kirjautunut käyttäjä voi syöttää uudelle maksulle nimen, summan, päivämäärän, maksajan sekä valita maksulle ostajat eli kenelle maksu kohdistuu. Nämä arvot ovat pakollisia. Lisäksi käyttäjä voi syöttää maksulle lisätietoja, joka ei ole pakollinen kenttä. Maksaja- ja ostajaluetteloissa näkyvät matkan matkustajat. Päivämäärän syöttökenttä on toteutettu ulkoisen tkcalendar-kirjaston avulla. Klikkaamalla syöttökenttää aukeaa kalenterinäkymä, josta halutun päivämäärän voi valita klikkaamalla päivää.
 
 Käyttäjä voi tallentaa uuden maksun `Lisää uusi maksu` -painiketta painamalla. Painikkeen painamiseen reagoiva tapahtumakäsittelijä tarkistaa onko  tietokantaan tallennettu kyseiselle matkalle saman nimistä maksua. Mikäli näin on, niin sen jälkeen sovelluslogiikka tallentaa ensin maksajan kutsumalla `PaymentService` metodia `create_payment`, jonka parametreina ovat matkan id, maksun nimi, päivämäärä, summa, teksti "maksu", maksun maksaja ja mahdollinen lisätieto. Sovelluslogiikka tallentaa maksun kutsumalla `PaymentRepository`:n metodia `create`, jonka parametriksi annetaan sovelluslogiikan luoma `Payment`-olio. Sen jälkeen sovelluslogiikka tallentaa jokaisen matkustajaluettelosta valitun ostajan. Tallennus tietokantaan tapahtuu muuten samalla tavalla kuin maksaja, mutta nyt teksti "maksu" vaihdetaan tekstiksi "ostos".
+
+### Muut toiminnallisuudet
+
+Käyttäjä pystyy siirtymään näkymästä toiseen painamalla kyseisen näkymän painiketta. Tällöin käyttöliittymän tapahtumakäsittelijä vaihtaa näkymäksi halutun näkymän.
+
+## Ohjelman rakenteeseen jääneet heikkoudet
+
+Tietokantaoperaatioita on mahdollista yksinkertaistaa lisäämällä tietokantaskeemaan liitostaulun taulujen `Travel` ja `Payment` väliin. Lisäksi graafisen käyttöliittymän koodia on mahdollista optimoida esim. luomalla yhteisiä komponentteja. Silloin koodin toisteisuus vähenisi.
