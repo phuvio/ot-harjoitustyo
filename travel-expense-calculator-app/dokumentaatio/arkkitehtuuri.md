@@ -59,7 +59,7 @@ Service-luokat pääsevät käsiksi käyttäjiin, matkoihin, matkustajiin ja mak
 
 Ohjelman eri osien suhdetta kuvaava luokka/pakkauskaavio:
 
-
+![Pakkauskaavio](./kuvat/pakkauskaavio.png)
 
 ## Tietojen pysyväistallennus
 
