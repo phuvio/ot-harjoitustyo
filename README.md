@@ -24,7 +24,7 @@ Sovelluksen toiminta on testattu Python-versiolla 3.8.
 
 - [Testausdokumentti](./travel-expense-calculator-app/dokumentaatio/testaus.md)
 
-- [Release](https://github.com/phuvio/ot-harjoitustyo/releases/tag/viikko5)
+- [Release](https://github.com/phuvio/ot-harjoitustyo/releases/tag/v1.0.0)
 
 
 # Asennus
