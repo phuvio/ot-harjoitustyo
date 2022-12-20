@@ -33,12 +33,14 @@ Käyttöliittymä sisältää yhdeksän erillistä näkymää:
 - Matkaluettelo
 - Uuden matkan luominen
 - Uuden matkustajan luominen
-- Matkan laskuluettelo
-- Uuden matkan luominen
-- Yksittäisen laskun tiedot
+- Matkan maksuluettelo
+- Uuden maksun luominen
+- Yksittäisen maksun tiedot
 - Yhteenveto
 
 Jokainen näistä on toteutettu omana luokkanaan. Näkymistä yksi on aina kerrallaan näkyvänä. Näkymien näyttämisestä vastaa UI-luokka. Käyttöliittymä on pyritty eristämään täysin sovelluslogiikasta. Se ainoastaan kutsuu eri Service-luokkien metodeja.
+
+Näkymät "Sisäänkirjautuminen" ja "Uuden käyttäjän luominen" ovat kaikille käyttäjille samanlaiset. Muuten näkymät muuttuvat jokaisen käyttäjän tallentamien tietojen pohjalta. Esimerkiksi "Matkaluettelo"-näkymässä näkyvät käyttäjän tallentamat matkat. Näkymässä "Uuden matkan luominen" pitää uudelle matkalle valita matkustajat. Matkustajaluettelo näyttää käyttäjän tallentamat matkustajat sekä käyttäjän oman käyttäjätunnuksen. Näkymässä "Uuden maksun luominen" maksulle pitää valita maksaja ja ostajat. Molempiin luetteloihin tulee näkyviin kaikki matkalle valitut matkustajat.
 
 ## Sovelluslogiikka
 
