@@ -74,6 +74,14 @@ class CreatePaymentView:
             self._show_error("Maksun nimi on pakollinen")
             return
 
+        if len(receipt_name) < 3:
+            self._show_error("Maksun nimen pitää olla vähintää 3 merkkiä")
+            return
+
+        if receipt_name.isspace():
+            self._show_error("Pelkkä välilyönti ei kelpaa")
+            return
+
         if len(amount) == 0:
             self._show_error("Maksun summa on pakollinen")
             return

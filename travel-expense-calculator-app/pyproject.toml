@@ -10,6 +10,7 @@ packages = [{include = "travel_expense_calculator_app"}]
 python = "^3.8"
 invoke = "^1.7.3"
 python-dotenv = "^0.21.0"
+tkcalendar = "^1.6.1"
 
 
 [tool.poetry.group.dev.dependencies]

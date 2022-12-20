@@ -62,6 +62,14 @@ class CreateTravelView:
             self._show_error("Matkan nimi on pakollinen")
             return
 
+        if len(name) < 3:
+            self._show_error("Matkan nimen pitää olla vähintään 3 merkkiä")
+            return
+
+        if name.isspace():
+            self._show_error("Pelkkä välilyönti ei kelpaa")
+            return
+
         if self._participants == None or len(self._participants) == 0:
             self._show_error("Valitse matkustajat")
             return
