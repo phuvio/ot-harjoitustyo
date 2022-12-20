@@ -46,6 +46,21 @@ Näkymät "Sisäänkirjautuminen" ja "Uuden käyttäjän luominen" ovat kaikille
 
 Sovelluksen loogisen tietomallin muodostavat luokat [User](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/src/entities/user.py), [Travel](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/src/entities/travel.py), [Participant](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/src/entities/participant.py) ja [Payment](https://github.com/phuvio/ot-harjoitustyo/blob/main/travel-expense-calculator-app/src/entities/payment.py). User-luokka kuvaa käyttäjiä, Travel-luokka matkoja, Participant-luokka matkoille osallistuvia matkustajia ja Payment-luokka maksuja.
 
+Sovelluslogiikka on service-luokilla `UserService`, `TravelService`, `ParticipantService` ja `PaymentService`. Service-luokat tarjoavat kaikille käyttöliittymän toiminnoille oman metodin. Näitä ovat mm.
+
+- `login(username, password)`
+- `get_current_user()`
+- `create_travel(name, guide)`
+- `get_all_travels()`
+- `get_participants_by_guide(guide)`
+- `get_payments_by_travel_and_action(travel_id, action)`
+
+Service-luokat pääsevät käsiksi käyttäjiin, matkoihin, matkustajiin ja maksuihin tietojen tallennuksesta vastaavan pakkauksessa repositories sijaitsevien luokkien `UserRepository`. `TravelRepository`, `ParticipantRepository` ja `PaymentRepository` kautta. Luokkien toteutuksen injektoidaan sovelluslogiikalle konstruktorikutsun yhteydessä.
+
+Ohjelman eri osien suhdetta kuvaava luokka/pakkauskaavio:
+
+![Pakkauskaavio](./kuvat/pakkauskaavio.png)
+
 ## Tietojen pysyväistallennus
 
 Repositories luokat `UserRepository`, `TravelRepository`, `ParticipantRepository` ja `PaymentRepository` huolehtivat tietojen tallettamisesta. Tiedot tallennetaan SQLite-tietokantaan.
