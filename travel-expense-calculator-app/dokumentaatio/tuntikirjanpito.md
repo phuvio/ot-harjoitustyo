@@ -29,8 +29,9 @@
 |11.12. |2     |maksuihin liittyvän sovelluslogiikan päivittäminen |
 |       |3     |koodin viimeistely |
 |12.12. |3     |dokumentointi |
-| yht.  |62    | |
 |13.12. |1     |käyttöohje |
 |17.12. |2     |testien viimeistely ja testausdokumentti |
 |18.12. |2     |dokumentointi |
 |19.12. |1     |dokumentointi |
+|20.12. |2     |final release |
+| yht.  |70    | |
